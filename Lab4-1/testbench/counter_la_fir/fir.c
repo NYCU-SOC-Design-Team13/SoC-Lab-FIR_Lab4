@@ -22,6 +22,5 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 	}
 	
 	return outputsignal;
-	return outputsignal;
 }
 		
