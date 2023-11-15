@@ -1,0 +1,27 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/header/user_defines.v" "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/header/defines.v" --include "../../../../../vvd_srcs/caravel_soc/rtl/header" --include "../../../../vvd_caravel_fpga.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../vvd_caravel_fpga.gen/sources_1/bd/design_1/ipshared/5765/hdl" --include "/tools/Xilinx/Vivado/2022.1/data/xilinx_vip/include" \
+"../../../../../vvd_srcs/caravel_soc/vip/RAM128.v" \
+"../../../../../vvd_srcs/caravel_soc/vip/RAM256.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/VexRiscv_MinDebugCache.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/user/bram.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/user/bram11.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/caravel.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/chip_io.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/user/fir.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/gpio_control_block.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/gpio_defaults_block.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/housekeeping.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/housekeeping_spi.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/mgmt_core.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/mgmt_core_wrapper.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/soc/mprj_io.v" \
+"../../../../../vitis_prj/verilog_spiflash/spiflash.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v" \
+"../../../../../vvd_srcs/caravel_soc/rtl/user/user_project_wrapper.v" \
+"../../../../../../testbench/counter_la_fir/counter_la_fir_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

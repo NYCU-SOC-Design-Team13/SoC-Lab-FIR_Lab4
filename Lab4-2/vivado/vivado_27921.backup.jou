@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Oct 31 22:15:01 2023
+# Process ID: 27921
+# Current directory: /home/ubuntu/lab-caravel_fir/vivado
+# Command line: vivado
+# Log file: /home/ubuntu/lab-caravel_fir/vivado/vivado.log
+# Journal file: /home/ubuntu/lab-caravel_fir/vivado/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2111.998 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.xpr
+reset_run design_1_caravel_0_0_synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+update_compile_order -fileset sources_1
+reset_run design_1_caravel_0_0_synth_1
+reset_run synth_1
+update_module_reference design_1_caravel_0_0
+launch_runs synth_1
+wait_on_run synth_1
+update_module_reference design_1_caravel_0_0
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+update_module_reference design_1_caravel_0_0
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/vivado/timing_report.log
+launch_simulation
+source caravel.tcl
+run 10 us
+run 10 us
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse /home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+close_project
+create_project project_1 /home/ubuntu/lab-caravel_fir/project_1 -part xc7z020clg400-1
+import_files -norecurse {/home/ubuntu/lab-caravel_fir/rtl/user/bram11.v /home/ubuntu/lab-caravel_fir/rtl/user/fir.v /home/ubuntu/lab-caravel_fir/rtl/user/bram.v /home/ubuntu/lab-caravel_fir/rtl/user/user_proj_example.counter.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+import_files -norecurse {/home/ubuntu/lab-caravel_fir/rtl/header/defines.v /home/ubuntu/lab-caravel_fir/rtl/header/user_defines.v}
+update_compile_order -fileset sources_1
+file mkdir /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1
+file mkdir /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new
+close [ open /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+close_design
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+close_design
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+close_design
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt

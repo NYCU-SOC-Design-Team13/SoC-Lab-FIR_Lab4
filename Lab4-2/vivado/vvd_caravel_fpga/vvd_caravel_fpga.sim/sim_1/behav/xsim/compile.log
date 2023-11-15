@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/verilog_spiflash/spiflash.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spiflash
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter_la_fir_tb

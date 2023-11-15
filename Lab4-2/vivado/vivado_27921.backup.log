@@ -1,0 +1,580 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Oct 31 22:15:01 2023
+# Process ID: 27921
+# Current directory: /home/ubuntu/lab-caravel_fir/vivado
+# Command line: vivado
+# Log file: /home/ubuntu/lab-caravel_fir/vivado/vivado.log
+# Journal file: /home/ubuntu/lab-caravel_fir/vivado/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2111.998 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_caravel_ps'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_output_pin'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_read_romcode'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'design_1_caravel_0_0' generated file not found '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'design_1_caravel_0_0' generated file not found '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'design_1_caravel_0_0' generated file not found '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'design_1_caravel_0_0' generated file not found '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'design_1_caravel_0_0' generated file not found '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0_sim_netlist.vhdl'. Please regenerate to continue.
+reset_run design_1_caravel_0_0_synth_1
+reset_run synth_1
+launch_runs synth_1
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:15:45 2023] Launched design_1_caravel_0_0_synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/design_1_caravel_0_0_synth_1/runme.log
+[Tue Oct 31 22:15:45 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 7737.906 ; gain = 7.023 ; free physical = 2819 ; free virtual = 5710
+update_compile_order -fileset sources_1
+reset_run design_1_caravel_0_0_synth_1
+reset_run synth_1
+update_module_reference design_1_caravel_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clock' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'flash_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clock' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'flash_clk' does not have any bus interfaces associated with it.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'flash_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_caravel_ps'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_output_pin'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_read_romcode'.
+Reading block design file </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - axi_mem_intercon
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - blk_mem_gen_0
+Adding component instance block -- xilinx.com:module_ref:caravel:1.0 - caravel_0
+Adding component instance block -- xilinx.com:hls:caravel_ps:0.0 - caravel_ps_0
+Adding component instance block -- xilinx.com:hls:output_pin:0.0 - output_pin_0
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:hls:read_romcode:0.0 - read_romcode_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_10M
+Adding component instance block -- xilinx.com:module_ref:spiflash:1.0 - spiflash_0
+Successfully read diagram <design_1> from block design file </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd>
+Upgrading '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_caravel_0_0 to use current project options
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+upgrade_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 7797.391 ; gain = 6.641 ; free physical = 1616 ; free virtual = 4092
+update_module_reference: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 7797.391 ; gain = 6.641 ; free physical = 1616 ; free virtual = 4092
+launch_runs synth_1
+WARNING: [BD 41-927] Following properties on pin /read_romcode_0/ap_clk have been updated from connected ip, but BD cell '/read_romcode_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 10000000 
+Please resolve any mismatches by directly setting properties on BD cell </read_romcode_0> to completely resolve these warnings.
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/sim/design_1.v
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block caravel_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Hardware Definition File /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 5489b80d248abb6a; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = 3553e72f39191246; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_0, cache-ID = f17fe39e1d09bcf3; cache size = 5.526 MB.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:19:50 2023] Launched design_1_caravel_0_0_synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/design_1_caravel_0_0_synth_1/runme.log
+[Tue Oct 31 22:19:50 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 7911.355 ; gain = 113.965 ; free physical = 1358 ; free virtual = 3873
+update_module_reference design_1_caravel_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clock' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'flash_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clock' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'flash_clk' does not have any bus interfaces associated with it.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'flash_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_caravel_ps'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_output_pin'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_read_romcode'.
+Upgrading '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_caravel_0_0 to use current project options
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9359.312 ; gain = 0.000 ; free physical = 1426 ; free virtual = 3564
+reset_run synth_1
+launch_runs synth_1
+WARNING: [BD 41-927] Following properties on pin /read_romcode_0/ap_clk have been updated from connected ip, but BD cell '/read_romcode_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 10000000 
+Please resolve any mismatches by directly setting properties on BD cell </read_romcode_0> to completely resolve these warnings.
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/sim/design_1.v
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block caravel_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Hardware Definition File /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 5489b80d248abb6a; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = 3553e72f39191246; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_0, cache-ID = f17fe39e1d09bcf3; cache size = 5.526 MB.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:22:49 2023] Launched design_1_caravel_0_0_synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/design_1_caravel_0_0_synth_1/runme.log
+[Tue Oct 31 22:22:49 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 9484.422 ; gain = 119.031 ; free physical = 1350 ; free virtual = 3523
+update_module_reference design_1_caravel_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clock' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'flash_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-5661] Bus Interface 'clock' does not have any bus interfaces associated with it.
+WARNING: [IP_Flow 19-5661] Bus Interface 'flash_clk' does not have any bus interfaces associated with it.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'flash_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_caravel_ps'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_output_pin'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/hls_read_romcode'.
+Upgrading '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_caravel_0_0 to use current project options
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs synth_1
+WARNING: [BD 41-927] Following properties on pin /read_romcode_0/ap_clk have been updated from connected ip, but BD cell '/read_romcode_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 10000000 
+Please resolve any mismatches by directly setting properties on BD cell </read_romcode_0> to completely resolve these warnings.
+Wrote  : </home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/s00_couplers/auto_pc/s_axi_arlock'(1) to pin: '/axi_mem_intercon/s00_couplers/S_AXI_arlock'(2) - Only lower order bits will be connected.
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/sim/design_1.v
+Verilog Output written to : /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block caravel_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Hardware Definition File /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 5489b80d248abb6a; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = 3553e72f39191246; cache size = 5.526 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_0, cache-ID = f17fe39e1d09bcf3; cache size = 5.526 MB.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 31 22:24:54 2023] Launched design_1_caravel_0_0_synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/design_1_caravel_0_0_synth_1/runme.log
+[Tue Oct 31 22:24:54 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 9673.520 ; gain = 117.027 ; free physical = 2365 ; free virtual = 3502
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_0/design_1_blk_mem_gen_0_0.dcp' for cell 'design_1_i/blk_mem_gen_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_0_0/design_1_caravel_0_0.dcp' for cell 'design_1_i/caravel_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_caravel_ps_0_0/design_1_caravel_ps_0_0.dcp' for cell 'design_1_i/caravel_ps_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_output_pin_0_0/design_1_output_pin_0_0.dcp' for cell 'design_1_i/output_pin_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp' for cell 'design_1_i/processing_system7_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_read_romcode_0_0/design_1_read_romcode_0_0.dcp' for cell 'design_1_i/read_romcode_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0.dcp' for cell 'design_1_i/rst_ps7_0_10M'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_spiflash_0_0/design_1_spiflash_0_0.dcp' for cell 'design_1_i/spiflash_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.dcp' for cell 'design_1_i/axi_mem_intercon/s00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0.dcp' for cell 'design_1_i/axi_mem_intercon/s00_couplers/auto_us'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0.dcp' for cell 'design_1_i/ps7_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp' for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 9729.609 ; gain = 0.000 ; free physical = 2324 ; free virtual = 3349
+INFO: [Netlist 29-17] Analyzing 558 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_board.xdc] for cell 'design_1_i/rst_ps7_0_10M/U0'
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_board.xdc] for cell 'design_1_i/rst_ps7_0_10M/U0'
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0.xdc] for cell 'design_1_i/rst_ps7_0_10M/U0'
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0.xdc] for cell 'design_1_i/rst_ps7_0_10M/U0'
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc] for cell 'design_1_i/axi_mem_intercon/s00_couplers/auto_us/inst'
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_clocks.xdc] for cell 'design_1_i/axi_mem_intercon/s00_couplers/auto_us/inst'
+INFO: [Project 1-1714] 1 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9844.176 ; gain = 0.000 ; free physical = 2172 ; free virtual = 3223
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 69 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 10002.980 ; gain = 313.434 ; free physical = 2079 ; free virtual = 3145
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/vivado/timing_report.log
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'caravel'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/tools/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'caravel' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L axi_vip_v1_1_12 -L processing_system7_vip_v1_0_14 -L xilinx_vip -prj caravel_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/header/user_defines.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/header/defines.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/vip/RAM128.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RAM128
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/vip/RAM256.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RAM256
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/VexRiscv_MinDebugCache.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module VexRiscv
+INFO: [VRFC 10-311] analyzing module InstructionCache
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/bram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/bram11.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bram11
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/chip_io.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module chip_io
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/fir.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/gpio_control_block.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gpio_control_block
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/gpio_defaults_block.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gpio_defaults_block
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/housekeeping.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module housekeeping
+INFO: [VRFC 10-311] analyzing module boledu_fd_sc_hd__clkbuf_8
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/housekeeping_spi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module housekeeping_spi
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/mgmt_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mgmt_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/mgmt_core_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mgmt_core_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/mprj_io.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mprj_io
+INFO: [VRFC 10-311] analyzing module boledu_io
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module user_proj_example
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'io_in' is not allowed [/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v:80]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'io_out' is not allowed [/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v:81]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'io_oeb' is not allowed [/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v:82]
+INFO: [VRFC 10-311] analyzing module WBToAXI
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'wbs_ack_o' is not allowed [/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v:316]
+INFO: [VRFC 10-311] analyzing module WB_to_User_Bram
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'wbs_dat_o' is not allowed [/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_proj_example.counter.v:481]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/user/user_project_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module user_project_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_srcs/caravel_soc/rtl/soc/caravel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module caravel
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot caravel_behav xil_defaultlib.caravel xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot caravel_behav xil_defaultlib.caravel xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.boledu_io
+Compiling module xil_defaultlib.mprj_io_default
+Compiling module xil_defaultlib.chip_io
+Compiling module xil_defaultlib.RAM256_default
+Compiling module xil_defaultlib.RAM128_default
+Compiling module xil_defaultlib.InstructionCache
+Compiling module xil_defaultlib.VexRiscv
+Compiling module xil_defaultlib.mgmt_core
+Compiling module xil_defaultlib.mgmt_core_wrapper
+Compiling module xil_defaultlib.bram
+Compiling module xil_defaultlib.WB_to_User_Bram
+Compiling module xil_defaultlib.WBToAXI
+Compiling module xil_defaultlib.fir
+Compiling module xil_defaultlib.bram11
+Compiling module xil_defaultlib.user_proj_example
+Compiling module xil_defaultlib.user_project_wrapper
+Compiling module xil_defaultlib.boledu_fd_sc_hd__clkbuf_8
+Compiling module xil_defaultlib.housekeeping_spi
+Compiling module xil_defaultlib.housekeeping
+Compiling module xil_defaultlib.gpio_defaults_block
+Compiling module xil_defaultlib.gpio_control_block
+Compiling module xil_defaultlib.caravel
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot caravel_behav
+execute_script: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 10400.445 ; gain = 0.000 ; free physical = 1130 ; free virtual = 2468
+INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "caravel_behav -key {Behavioral:sim_1:Functional:caravel} -tclbatch {caravel.tcl} -protoinst "protoinst_files/design_1.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/design_1.protoinst
+WARNING: [Wavedata 42-558] Couldn't load one or more protocol instances from protoinst file protoinst_files/design_1.protoinst for the following reason(s):
+There are no instances of module "design_1" in the design.
+
+Time resolution is 1 ps
+source caravel.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'caravel_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 10466.633 ; gain = 69.156 ; free physical = 1061 ; free virtual = 2414
+run 10 us
+run 10 us
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse /home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'counter_la_fir_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Runs 36-567] Checking/generating simulation output products for IPs/BDs (if any)...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.1/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/tools/Xilinx/Vivado/2022.1/data/xsim/xsim.ini' copied to run dir:'/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'counter_la_fir_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L axi_vip_v1_1_12 -L processing_system7_vip_v1_0_14 -L xilinx_vip -prj counter_la_fir_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/vivado/vitis_prj/verilog_spiflash/spiflash.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module spiflash
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter_la_fir_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot counter_la_fir_tb_behav xil_defaultlib.counter_la_fir_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot counter_la_fir_tb_behav xil_defaultlib.counter_la_fir_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'mprj_io' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:265]
+ERROR: [VRFC 10-3180] cannot find port 'io3' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:281]
+ERROR: [VRFC 10-3180] cannot find port 'io2' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:280]
+ERROR: [VRFC 10-3180] cannot find port 'clk' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:277]
+WARNING: [VRFC 10-2861] module 'spiflash' does not have a parameter named FILENAME [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:274]
+ERROR: [VRFC 10-2063] Module <tbuart> not found while processing module instance <tbuart> [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:285]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/ubuntu/lab-caravel_fir/vivado/vvd_caravel_fpga/vvd_caravel_fpga.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_project
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+create_project project_1 /home/ubuntu/lab-caravel_fir/project_1 -part xc7z020clg400-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
+import_files -norecurse {/home/ubuntu/lab-caravel_fir/rtl/user/bram11.v /home/ubuntu/lab-caravel_fir/rtl/user/fir.v /home/ubuntu/lab-caravel_fir/rtl/user/bram.v /home/ubuntu/lab-caravel_fir/rtl/user/user_proj_example.counter.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+import_files -norecurse {/home/ubuntu/lab-caravel_fir/rtl/header/defines.v /home/ubuntu/lab-caravel_fir/rtl/header/user_defines.v}
+update_compile_order -fileset sources_1
+file mkdir /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1
+file mkdir /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new
+close [ open /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc
+launch_runs synth_1
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Wed Nov  1 07:24:28 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Wed Nov  1 07:27:51 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10530.559 ; gain = 0.000 ; free physical = 2533 ; free virtual = 6013
+INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+CRITICAL WARNING: [Common 17-170] Unknown option '-peroid', please type 'create_clock -help' for usage info. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:1]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:3]
+WARNING: [Vivado 12-646] clock 'clk' not found. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:3]
+CRITICAL WARNING: [Vivado 12-4739] set_input_delay:No valid object(s) found for '-clock clk'. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:3]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-646] clock 'clk' not found. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] set_output_delay:No valid object(s) found for '-clock clk'. [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10530.559 ; gain = 0.000 ; free physical = 2469 ; free virtual = 5949
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+close_design
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/user_proj_example.dcp to /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1
+[Wed Nov  1 07:32:05 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2601 ; free virtual = 6001
+INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'wb_clk_i' relative to clock 'clk' defined on the same pin is not supported, ignoring it [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:3]
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2539 ; free virtual = 5939
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'wb_clk_i' relative to clock 'clk' defined on the same pin is not supported, ignoring it [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc:3]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/utils_1/imports/synth_1/user_proj_example.dcp with file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/user_proj_example.dcp
+launch_runs synth_1
+[Wed Nov  1 07:34:12 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2590 ; free virtual = 5982
+INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2538 ; free virtual = 5929
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/utils_1/imports/synth_1/user_proj_example.dcp with file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/user_proj_example.dcp
+launch_runs synth_1
+[Wed Nov  1 07:36:15 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2554 ; free virtual = 5850
+INFO: [Netlist 29-17] Analyzing 95 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+Finished Parsing XDC File [/home/ubuntu/lab-caravel_fir/project_1/project_1.srcs/constrs_1/new/constraint_1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 10532.750 ; gain = 0.000 ; free physical = 2500 ; free virtual = 5796
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+
+report_timing_summary -delay_type max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab-caravel_fir/project_1/project_1.runs/synth_1/timing_report.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Nov  4 07:16:03 2023...
