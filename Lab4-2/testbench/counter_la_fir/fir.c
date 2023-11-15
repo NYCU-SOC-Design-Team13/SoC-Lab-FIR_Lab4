@@ -26,22 +26,18 @@ void __attribute__ ( ( section ( ".mprjram" ) ) ) initfir() {
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 	initfir();
 	//write down your fir
-
-	int s;
-	s = reg_ap_signal;
+	
 	for (int i = 0; i < 64; i++) {
-		while (!((reg_ap_signal >> 4) & 1) && i != 0)
-			s = reg_ap_signal;
+		while (reg_ap_signal & 0x00010000 != 0x00010000)
+			;;
 		reg_x_input = i;
-
-		while (!((reg_ap_signal >> 5) & 1))
-			s = reg_ap_signal;
+		while (reg_ap_signal & 0x00100000 != 0x00100000)
+			;;
 		outputsignal[i] = reg_y_output;
 	}
 
-	s = reg_ap_signal;
-	reg_mprj_datal = ((0x000000FF & outputsignal[63]) << 24) | 0x005A0000;
-	
+	reg_mprj_datal = 0x005A0000;
+
 	return outputsignal;
 }
 		

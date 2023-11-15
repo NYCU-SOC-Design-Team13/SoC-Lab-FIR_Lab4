@@ -179,69 +179,26 @@ module counter_la_fir_tb;
 		forever @(posedge clock) latency_timer = latency_timer + 1;
 	end
 
-	// integer ans1[0:63];
-	// integer input1[0:63];
-	// integer ii, jj;
-	// logic signed [31:0] taps [0:10];
-
-	// task gen_ans; begin
-	// 	taps[0] = 0;
-	// 	taps[1]  = -10;
-	// 	taps[2] = -9;
-	// 	taps[3] = 23;
-	// 	taps[4] = 56;
-	// 	taps[5] = 63;
-	// 	taps[6] = 56;
-	// 	taps[7] = 23;
-	// 	taps[8] = -9;
-	// 	taps[9] = -10;
-	// 	taps[10] = 0;
-
-	// 	for(ii=0; ii<64; ii=ii+1) begin
-	// 		ans1[ii] = 0;
-	// 		input1[ii] = ii;
-			
-	// 	end
-
-	// 	for(ii=0; ii<64; ii=ii+1) begin
-	// 		for(jj=0; jj<11; jj=jj+1) begin
-	// 			if(ii-jj>=0)begin
-	// 				ans1[ii] += input1[ii-jj]*taps[jj];
-	// 			end
-	// 		end
-	// 		$display("%d",ans1[ii]);
-	// 	end
-
-	// end endtask
-
 	initial begin
-		// gen_ans;
+	
 		wait(checkbits == 16'hAB40);
 		$display("LA Test 1 started");
-		//wait(checkbits == 16'hAB41);
 
-
-		for (j = 0; j < 64; j = j + 1) begin
+		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-			//$display("data %d pass", j);
-		end
 		$display("First Pattern Pass");
 
-		for (j = 0; j < 64; j = j + 1) begin
+		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-			//$display("data %d pass", j);
-		end
 		$display("Second Pattern Pass");
 
-		for (j = 0; j < 64; j = j + 1) begin
+		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-			//$display("data %d pass", j);
-		end
 		$display("Thrid Pattern Pass");
 
 		wait(checkbits == 16'hAB51);
 		$display("LA Test 2 passed");
-		$display("Latency %d", latency_timer);
+		$display("Latency %d clocks", latency_timer);
 		#10000;
 		$finish;
 	end
