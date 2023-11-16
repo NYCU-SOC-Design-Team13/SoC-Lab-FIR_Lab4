@@ -1,88 +1,16 @@
-# 0 "counter_la_fir.c"
-# 1 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir//"
+# 0 "../../firmware/isr.c"
+# 1 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/testbench/counter_la_fir//"
 # 0 "<built-in>"
 # 0 "<command-line>"
-# 1 "counter_la_fir.c"
-# 19 "counter_la_fir.c"
-# 1 "../../firmware/defs.h" 1
-# 21 "../../firmware/defs.h"
-# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 1 3 4
-# 11 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 3 4
-# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 1 3 4
-# 34 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 3 4
-
-# 34 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 3 4
-typedef signed char int8_t;
+# 1 "../../firmware/isr.c"
 
 
-typedef short int int16_t;
-
-
-typedef long int int32_t;
-
-
-typedef long long int int64_t;
-
-
-typedef unsigned char uint8_t;
-
-
-typedef short unsigned int uint16_t;
-
-
-typedef long unsigned int uint32_t;
-
-
-typedef long long unsigned int uint64_t;
-
-
-
-
-typedef signed char int_least8_t;
-typedef short int int_least16_t;
-typedef long int int_least32_t;
-typedef long long int int_least64_t;
-typedef unsigned char uint_least8_t;
-typedef short unsigned int uint_least16_t;
-typedef long unsigned int uint_least32_t;
-typedef long long unsigned int uint_least64_t;
-
-
-
-typedef int int_fast8_t;
-typedef int int_fast16_t;
-typedef int int_fast32_t;
-typedef long long int int_fast64_t;
-typedef unsigned int uint_fast8_t;
-typedef unsigned int uint_fast16_t;
-typedef unsigned int uint_fast32_t;
-typedef long long unsigned int uint_fast64_t;
-
-
-
-
-typedef int intptr_t;
-
-
-typedef unsigned int uintptr_t;
-
-
-
-
-typedef long long int intmax_t;
-typedef long long unsigned int uintmax_t;
-# 12 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 2 3 4
-# 22 "../../firmware/defs.h" 2
-# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdbool.h" 1 3 4
-# 23 "../../firmware/defs.h" 2
 
 # 1 "../../firmware/csr.h" 1
 
 
 
 # 1 "../../firmware/generated/soc.h" 1
-# 33 "../../firmware/generated/soc.h"
-
 # 33 "../../firmware/generated/soc.h"
 static inline int config_clock_frequency_read(void) {
  return 10000000;
@@ -150,7 +78,73 @@ static inline int user_irq_5_interrupt_read(void) {
 # 5 "../../firmware/csr.h" 2
 
 
+# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 1 3 4
+# 11 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 3 4
+# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 1 3 4
+# 34 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 3 4
 
+# 34 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h" 3 4
+typedef signed char int8_t;
+
+
+typedef short int int16_t;
+
+
+typedef long int int32_t;
+
+
+typedef long long int int64_t;
+
+
+typedef unsigned char uint8_t;
+
+
+typedef short unsigned int uint16_t;
+
+
+typedef long unsigned int uint32_t;
+
+
+typedef long long unsigned int uint64_t;
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef long int int_least32_t;
+typedef long long int int_least64_t;
+typedef unsigned char uint_least8_t;
+typedef short unsigned int uint_least16_t;
+typedef long unsigned int uint_least32_t;
+typedef long long unsigned int uint_least64_t;
+
+
+
+typedef int int_fast8_t;
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+typedef long long int int_fast64_t;
+typedef unsigned int uint_fast8_t;
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+typedef long long unsigned int uint_fast64_t;
+
+
+
+
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+
+
+
+
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
+# 12 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint.h" 2 3 4
+# 8 "../../firmware/csr.h" 2
 # 1 "../../firmware/system.h" 1
 
 
@@ -167,6 +161,8 @@ static inline int user_irq_5_interrupt_read(void) {
 
 
 
+
+# 14 "../../firmware/system.h"
 __attribute__((unused)) static void flush_cpu_icache(void)
 {
 # 26 "../../firmware/system.h"
@@ -1584,6 +1580,59 @@ static inline uint32_t user_irq_ena_out_read(void) {
 static inline void user_irq_ena_out_write(uint32_t v) {
  csr_write_simple(v, 0xf0000000L + 0x9800L);
 }
+# 5 "../../firmware/isr.c" 2
+
+# 1 "../../firmware/irq_vex.h" 1
+# 9 "../../firmware/irq_vex.h"
+# 1 "../../firmware/csr.h" 1
+# 10 "../../firmware/irq_vex.h" 2
+
+
+static inline unsigned int irq_getie(void)
+{
+ return (({ unsigned long __tmp; asm volatile ("csrr %0, " "mstatus" : "=r"(__tmp)); __tmp; }) & 0x8) != 0;
+}
+
+static inline void irq_setie(unsigned int ie)
+{
+ if(ie) ({ if (__builtin_constant_p(0x8) && (unsigned long)(0x8) < 32) asm volatile ("csrrs x0, " "mstatus" ", %0" :: "i"(0x8)); else asm volatile ("csrrs x0, " "mstatus" ", %0" :: "r"(0x8)); }); else ({ if (__builtin_constant_p(0x8) && (unsigned long)(0x8) < 32) asm volatile ("csrrc x0, " "mstatus" ", %0" :: "i"(0x8)); else asm volatile ("csrrc x0, " "mstatus" ", %0" :: "r"(0x8)); });
+}
+
+static inline unsigned int irq_getmask(void)
+{
+ unsigned int mask;
+ asm volatile ("csrr %0, %1" : "=r"(mask) : "i"(0xBC0));
+ return mask;
+}
+
+static inline void irq_setmask(unsigned int mask)
+{
+ asm volatile ("csrw %0, %1" :: "i"(0xBC0), "r"(mask));
+}
+
+static inline unsigned int irq_pending(void)
+{
+ unsigned int pending;
+ asm volatile ("csrr %0, %1" : "=r"(pending) : "i"(0xFC0));
+ return pending;
+}
+# 7 "../../firmware/isr.c" 2
+# 1 "../../firmware/uart.h" 1
+# 11 "../../firmware/uart.h"
+void uart_init(void);
+void uart_isr(void);
+void uart_sync(void);
+
+void uart_write(char c);
+char uart_read(void);
+int uart_read_nonblock(void);
+# 8 "../../firmware/isr.c" 2
+# 1 "../../firmware/defs.h" 1
+# 22 "../../firmware/defs.h"
+# 1 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdbool.h" 1 3 4
+# 23 "../../firmware/defs.h" 2
+
+# 1 "../../firmware/csr.h" 1
 # 25 "../../firmware/defs.h" 2
 # 1 "../../firmware/caravel.h" 1
 # 26 "../../firmware/defs.h" 2
@@ -1595,88 +1644,36 @@ extern uint32_t sram;
 
 extern uint32_t flashio_worker_begin;
 extern uint32_t flashio_worker_end;
-# 20 "counter_la_fir.c" 2
+# 9 "../../firmware/isr.c" 2
+
+void isr(void);
 
 
-extern int* fir();
-# 34 "counter_la_fir.c"
-void main()
+
+uint16_t flag;
+
+void isr(void)
 {
- int j;
-# 63 "counter_la_fir.c"
-        (*(volatile uint32_t*)0x260000a0) = 0x1809;
-        (*(volatile uint32_t*)0x2600009c) = 0x1809;
-        (*(volatile uint32_t*)0x26000098) = 0x1809;
-        (*(volatile uint32_t*)0x26000094) = 0x1809;
-        (*(volatile uint32_t*)0x26000090) = 0x1809;
-        (*(volatile uint32_t*)0x2600008c) = 0x1809;
-        (*(volatile uint32_t*)0x26000088) = 0x1809;
-        (*(volatile uint32_t*)0x26000084) = 0x1809;
-        (*(volatile uint32_t*)0x26000080) = 0x1809;
-        (*(volatile uint32_t*)0x2600007c) = 0x1809;
-        (*(volatile uint32_t*)0x26000078) = 0x1809;
-        (*(volatile uint32_t*)0x26000074) = 0x1809;
-        (*(volatile uint32_t*)0x26000070) = 0x1809;
-        (*(volatile uint32_t*)0x2600006c) = 0x1809;
-        (*(volatile uint32_t*)0x26000068) = 0x1809;
-        (*(volatile uint32_t*)0x26000064) = 0x1809;
-
-        (*(volatile uint32_t*)0x26000060) = 0x1808;
-        (*(volatile uint32_t*)0x2600005c) = 0x1808;
-        (*(volatile uint32_t*)0x26000058) = 0x1808;
-        (*(volatile uint32_t*)0x26000054) = 0x1808;
-        (*(volatile uint32_t*)0x26000050) = 0x1808;
-        (*(volatile uint32_t*)0x2600004c) = 0x1808;
-        (*(volatile uint32_t*)0x26000048) = 0x1808;
-        (*(volatile uint32_t*)0x26000044) = 0x1808;
-        (*(volatile uint32_t*)0x26000040) = 0x1808;
-        (*(volatile uint32_t*)0x26000038) = 0x1808;
-        (*(volatile uint32_t*)0x26000034) = 0x1808;
-        (*(volatile uint32_t*)0x26000030) = 0x1808;
-        (*(volatile uint32_t*)0x2600002c) = 0x1808;
-        (*(volatile uint32_t*)0x26000028) = 0x1808;
-        (*(volatile uint32_t*)0x26000024) = 0x1808;
-
-        (*(volatile uint32_t*)0x2600003c) = 0x1809;
 
 
 
- (*(volatile uint32_t*) (0xf0000000L + 0x6000L)) = 1;
 
-
- (*(volatile uint32_t*)0x26000000) = 1;
- while ((*(volatile uint32_t*)0x26000000) == 1);
-
-
-
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 12)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 12)) = 0x00000000;
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 8)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 8)) = 0xFFFFFFFF;
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 4)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 4)) = 0x00000000;
- (*(volatile uint32_t*) (0xf0000000L + 0x3010L)) = (*(volatile uint32_t*) (0xf0000000L + 0x3000L)) = 0x00000000;
-
-
- (*(volatile uint32_t*)0x2600000c) = 0xAB400000;
-
-
- (*(volatile uint32_t*) ((0xf0000000L + 0x3030L) + 8)) = 0x00000000;
-
-
- (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 8)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 8)) = 0x00000000;
-# 130 "counter_la_fir.c"
- int* tmp = fir();
- (*(volatile uint32_t*)0x2600000c) = *tmp << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+1) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+2) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+3) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+4) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+5) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+6) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+7) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+8) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+9) << 16;
- (*(volatile uint32_t*)0x2600000c) = *(tmp+10) << 16;
+ irq_setmask(0);
+# 32 "../../firmware/isr.c"
+   (*(volatile uint32_t*) ((0xf0000000L + 0x3030L) + 8)) = 0xa;
+   (*(volatile uint32_t*) ((0xf0000000L + 0x3030L) + 12)) = 0x20000;
+   flag = 1;
 
 
 
- (*(volatile uint32_t*)0x2600000c) = 0xAB510000;
+
+
+
+
+    return;
+
+
+
+
+
 }

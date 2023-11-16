@@ -1,35 +1,40 @@
+`timescale 1ns / 1ps
 module fir 
 #(  parameter pADDR_WIDTH = 12,
     parameter pDATA_WIDTH = 32,
     parameter Tape_Num    = 11
 )
 (
+    // AXI Lite write
     output  wire                     awready,
     output  wire                     wready,
     input   wire                     awvalid,
     input   wire [(pADDR_WIDTH-1):0] awaddr,
     input   wire                     wvalid,
     input   wire [(pDATA_WIDTH-1):0] wdata,
+    // AXI lite read
     output  wire                     arready,
     input   wire                     rready,
     input   wire                     arvalid,
     input   wire [(pADDR_WIDTH-1):0] araddr,
     output  wire                     rvalid,
-    output  reg [(pDATA_WIDTH-1):0] rdata,    
+    output  wire [(pDATA_WIDTH-1):0] rdata, 
+    // AXI stream slave
     input   wire                     ss_tvalid, 
     input   wire [(pDATA_WIDTH-1):0] ss_tdata, 
     input   wire                     ss_tlast, 
-    output  reg                     ss_tready, 
+    output  wire                     ss_tready, 
+    // AXI stream master
     input   wire                     sm_tready, 
-    output  reg                     sm_tvalid, 
+    output  wire                     sm_tvalid, 
     output  wire [(pDATA_WIDTH-1):0] sm_tdata, 
-    output  reg                     sm_tlast, 
+    output  wire                     sm_tlast, 
     
     // bram for tap RAM
     output  wire [3:0]               tap_WE,
     output  wire                     tap_EN,
     output  wire [(pDATA_WIDTH-1):0] tap_Di,
-    output  reg [(pADDR_WIDTH-1):0] tap_A,
+    output  wire [(pADDR_WIDTH-1):0] tap_A,
     input   wire [(pDATA_WIDTH-1):0] tap_Do,
 
     // bram for data RAM
@@ -43,431 +48,248 @@ module fir
     input   wire                     axis_rst_n
 );
 
+parameter IDLE  = 2'd0;
+parameter CAL   = 2'd1;
+parameter DONE  = 2'd2;
 
-    // write your code here!
-    parameter IDLE = 2'b00, WAIT_FOR_DATA = 2'b01, COMPUTE = 2'b10,  RESET = 2'b11;
-    reg [1:0] current_state, next_state;
+reg                         wready_r, wready_w;
+reg                         rvalid_r, rvalid_w;
+reg  [(pDATA_WIDTH-1):0]    rdata_r, rdata_w;
 
-    reg [(pDATA_WIDTH-1):0] configuration;
-    reg [(pDATA_WIDTH-1):0] data_length;
+reg                         ss_tready_r, ss_tready_w;
 
-    reg [(pADDR_WIDTH-1):0] axilite_write_addr;
-    reg [(pDATA_WIDTH-1):0] axilite_write_data;
-    reg axilite_wdata_received;
-    reg axilite_waddr_received;
-    reg axilite_write_en;
+reg                         sm_tvalid_r, sm_tvalid_w;
+reg  [(pDATA_WIDTH-1):0]    sm_tdata_r, sm_tdata_w;
+reg                         sm_tlast_r, sm_tlast_w;
 
-    //reg [(pADDR_WIDTH-1):0] axilite_reg_raddr;
-    reg [(pDATA_WIDTH-1):0] axilite_read_reg;
-    reg axilite_out_valid;
-    reg wait_tapram_data;
-    reg axilite_raddr_received;
-    reg [(pADDR_WIDTH-1):0] axilite_read_addr;
-    reg read_data_length;
-    reg read_configuration;
+reg  [3:0]                  tap_WE_r, tap_WE_w;
+reg  [(pDATA_WIDTH-1):0]    tap_Di_r, tap_Di_w;
+reg  [(pADDR_WIDTH-1):0]    tap_A_r, tap_A_w;
+
+reg  [3:0]                  data_WE_r, data_WE_w;
+reg  [(pDATA_WIDTH-1):0]    data_Di_r, data_Di_w;
+reg  [(pADDR_WIDTH-1):0]    data_A_r, data_A_w;
+
+reg  [1:0]                  state_r, state_w;
+reg  [15:0]                 data_len_r, data_len_w;
+reg                         ap_start_r, ap_start_w;
+reg                         ap_done_r, ap_done_w;
+reg  [9:0]                  data_cnt_r, data_cnt_w;
+reg  [(pDATA_WIDTH-1):0]    sum_r, sum_w;
+reg  [(pDATA_WIDTH-1):0]    product_r, product_w;
+reg  [(pADDR_WIDTH-1):0]    tap_A_idle;
+reg  [(pADDR_WIDTH-1):0]    tap_A_cal;
+
+//delay
+reg  [(pDATA_WIDTH-1):0]    tap_Do_mul1, data_Do_mul2_r, data_Do_d1_mul2_w;
+reg                         ss_tin_d[0:13];
+reg                         tap_read_d1, tap_read_d2;
+reg  [5:0]                  data_A_last_r, data_A_last_w;
+reg                         sm_stop;
+
+wire                        tap_read;
+wire                        ap_idle;
+
+assign ap_idle      = state_r == IDLE;
+assign tap_read     = arready && arvalid && araddr[6];
+assign awready      = (awvalid && wvalid) ? 1 : 0;
+assign wready       = awready;
+assign arready      = (state_r == IDLE || !araddr[6]) ? 1 : 0;
+assign rvalid       = rvalid_r;
+assign rdata        = rdata_r;
+assign ss_tready    = ss_tready_r;
+assign sm_tvalid    = sm_tvalid_r;
+assign sm_tdata     = sm_tdata_r;
+assign sm_tlast     = sm_tlast_r;
+assign tap_WE       = tap_WE_r;
+assign tap_EN       = 1;
+assign tap_Di       = tap_Di_r;
+assign tap_A        = tap_A_r;
+assign data_WE      = data_WE_r;
+assign data_EN      = 1;
+assign data_Di      = data_Di_r;
+assign data_A       = data_A_r;
+
+always @(*) begin
+    rvalid_w        = 0;
+    rdata_w         = rdata_r;
+    tap_A_idle      = 0; //tap_A_r;
+    tap_WE_w        = 0;
+    tap_Di_w        = tap_Di_r;
+    ap_start_w      = state_r == IDLE ? ap_start_r : 0;
+    ap_done_w       = state_r == DONE ? 1 : ap_done_r;
+    data_len_w      = data_len_r;
+
+    // COEF write
+    if((awvalid && awready) && (wvalid && wready)) begin
+        if (awaddr[6:0] == 7'h0 && wdata[0]) 
+            ap_start_w = 1;
+        else if (awaddr[6:0] == 7'h10) 
+            data_len_w = wdata;
+        else begin
+            tap_WE_w = 4'b1111;
+            tap_A_idle = awaddr[5:0];
+            tap_Di_w = wdata;
+        end
+    end
+    // COEF read
+    else if(arvalid && arready) begin
+        if(araddr[6:0] == 7'h0) begin
+            rvalid_w = 1'b1;
+            rdata_w = {ap_idle, ap_done_r, ap_start_r};
+            ap_done_w = 0;
+        end
+        else if(araddr[6:0] == 7'h10) begin
+            rvalid_w = 1'b1;
+            rdata_w = data_len_r;
+        end
+        else tap_A_idle = araddr[5:0];
+    end
+    if(tap_read_d2) begin
+        rvalid_w = 1'b1;
+        rdata_w = tap_Do;
+    end
+    if(rvalid_r && !rready) rvalid_w = 1'b1;
+
+end
+
+always @(*) begin
+    ss_tready_w     = 0;
+    sm_tvalid_w     = sm_tready ? 0 : sm_tvalid_r;
+    sm_tdata_w      = sm_tdata_r;
+    sm_tlast_w      = sm_tlast_r;
+
+    data_WE_w       = 0;
+    data_Di_w       = data_Di_r;
+    data_A_w        = data_A_r;
+
+    state_w         = state_r;
+    data_cnt_w      = data_cnt_r;
+    tap_A_cal       = tap_A_r;
+    data_A_last_w   = data_A_last_r;
+    sm_stop         = (!sm_tready && sm_tvalid) && (ss_tin_d[11] || ss_tin_d[12]) && !(ss_tready && ss_tvalid);
     
-    reg first_data;
-    reg [5:0] shift_counter;
-    wire data_write_en;
-    reg [1:0] data_read_stage;
-    reg computing, outputing;
-    reg last_data;
-    reg signed [(pDATA_WIDTH-1):0] data_received;
-    reg [9:0] data_counter;
-
-    reg signed [(pDATA_WIDTH-1):0] accumulated_result;
-    wire signed [(pDATA_WIDTH-1):0] mult_result;
-    reg signed [(pDATA_WIDTH-1):0] mult1;
-    wire signed [(pDATA_WIDTH-1):0] mult2;
-    reg signed [(pDATA_WIDTH-1):0] current_data;
-
-    always@(*)begin
-        case(current_state)
-        IDLE:begin
-            if(configuration[0] == 1) next_state = WAIT_FOR_DATA;
-            else next_state = IDLE;
-        end
-        WAIT_FOR_DATA:begin
-            if(ss_tvalid) next_state = COMPUTE;
-            else next_state = WAIT_FOR_DATA;
-        end
-        COMPUTE:begin
-            if(sm_tlast && sm_tready && sm_tvalid) next_state = IDLE;
-            else next_state = COMPUTE;
-        end
-        default:begin
-            next_state = IDLE;
-        end
-        endcase
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    //-------------------------------------tap sram----------------------------------------------------
-    assign tap_EN = 1;
-
-    // axi lite write
-    assign awready = !axilite_waddr_received;
-    assign wready = !axilite_wdata_received;
-    assign tap_WE = {4{axilite_write_en && axilite_write_addr != 12'h00 && axilite_write_addr != 12'h10}};
-    assign tap_Di = axilite_write_data;
-
-    always@(*)begin
-        axilite_write_en = (axilite_waddr_received && axilite_wdata_received);
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_write_addr <= 0;
-        end
-        else begin
-            if(awvalid && awready) axilite_write_addr <= awaddr;
-            else axilite_write_addr <= axilite_write_addr;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_write_data <= 0;
-        end
-        else begin
-            if(wvalid && wready) axilite_write_data <= wdata;
-            else axilite_write_data <= axilite_write_data;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_waddr_received <= 0;
-        end
-        else begin
-            if(awvalid && awready) axilite_waddr_received <= 1;
-            else if(axilite_write_en) axilite_waddr_received <= 0;
-            else axilite_waddr_received <= axilite_waddr_received;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_wdata_received <= 0;
-        end
-        else begin
-            if(wvalid && wready) axilite_wdata_received <= 1;
-            else if(axilite_write_en) axilite_wdata_received <= 0;
-            else axilite_wdata_received <= axilite_wdata_received;
-        end
-    end
-
-    // axi lite read
-    assign arready = !rvalid && !axilite_write_en;
-    assign rvalid = axilite_out_valid;
-
-    always@(*)begin
-        if(read_configuration) rdata = {configuration[31:5],ss_tready,configuration[3:0]};
-        else if(read_data_length) rdata = data_length;
-        else rdata = axilite_read_reg;
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_raddr_received <= 0;
-        end
-        else begin
-            if(arvalid && arready) axilite_raddr_received <= 1;
-            //else if(rvalid && rready) axilite_raddr_received <= 0;
-            else axilite_raddr_received <= 0;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_read_addr <= 0;
-        end
-        else begin
-            if(arvalid && arready) axilite_read_addr <= araddr;
-            else axilite_read_addr <= axilite_read_addr;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            read_data_length <= 0;
-        end
-        else begin
-            if(arvalid && arready && araddr == 12'h10) read_data_length <= 1;
-            else if(rvalid && rready) read_data_length <= 0;
-            else read_data_length <= read_data_length;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            read_configuration <= 0;
-        end
-        else begin 
-            if(arvalid && arready && araddr == 12'h00) read_configuration <= 1;
-            else if(rvalid && rready) read_configuration <= 0;
-            else read_configuration <= read_configuration;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            wait_tapram_data <= 0;
-        end
-        else begin
-            if(axilite_raddr_received) wait_tapram_data <= 1;
-            else wait_tapram_data <= 0;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_read_reg <= 0;
-        end
-        else begin 
-            if(wait_tapram_data) axilite_read_reg <= tap_Do;
-            else axilite_read_reg <= axilite_read_reg;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            axilite_out_valid <= 0;
-        end
-        else begin
-            if(rvalid && rready) axilite_out_valid <= 0;
-            else if(wait_tapram_data) axilite_out_valid <= 1;
-            else axilite_out_valid <= axilite_out_valid;
-        end
-    end
-
-    // axi lite address control
-
-    always@(*)begin
-        if(axilite_raddr_received && (axilite_read_addr != 12'h00 && axilite_read_addr != 12'h10)) tap_A = axilite_read_addr-12'h40;
-        else if(axilite_write_en) tap_A = axilite_write_addr - 12'h40;
-        else tap_A = shift_counter;
-    end
-
-    // configuration and data length storage
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            configuration <= 32'h0000_0004;
-        end
-        else begin 
-            if(axilite_write_en && axilite_write_addr == 12'h00) configuration <= axilite_write_data;
-            else if(ss_tvalid && current_state == WAIT_FOR_DATA) configuration <= configuration & 32'hFFFF_FFFE;
-            else if(shift_counter == 0 && data_write_en) configuration <= configuration | 32'h0000_0020;
-            else if(sm_tready && sm_tvalid && sm_tlast) configuration <= 32'h0000_0006;
-            else if(rready && rvalid && read_configuration) configuration <= configuration & 32'hFFFF_FFDD;
-            else configuration <= configuration;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            data_length <= 0;
-        end
-        else begin
-            if(axilite_write_en && axilite_write_addr == 12'h10) data_length <= axilite_write_data;
-            else data_length <= data_length;
-        end
-    end
-
-    //------------------------------------COMPUTE state logic-----------------------------------------------------------
-    // data sram control
-    assign data_EN = (current_state == COMPUTE);
-    assign data_write_en = (data_read_stage == 0);
-    assign data_WE = {4{data_write_en}};
-    assign data_A = (data_read_stage == 2) ? shift_counter - 4 : shift_counter;
-    //assign mult1 = (shift_counter == 0) ? data_received : (first_data) ? 0 : data_Do;
-    assign mult2 = tap_Do;
-    assign data_Di = mult1;
-    assign mult_result = mult1 * mult2;
-    assign sm_tdata = accumulated_result;
-
-    always@(*)begin
-        if(shift_counter == 0)begin
-            if(data_counter >= data_length) mult1 = 0;
-            else mult1 = data_received;
-        end
-        else begin
-            if(first_data) mult1 = 0;
-            else mult1 = current_data;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            data_counter <= 0;
-        end
-        else begin
-            if(sm_tready && sm_tvalid) data_counter <= data_counter + 1;
-            else if(next_state == IDLE) data_counter <= 0;
-            else data_counter <= data_counter;
-        end
-    end
-    
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            data_received <= 0;
-        end
-        else begin
-            if(ss_tready && ss_tvalid) data_received <= ss_tdata;
-            else data_received <= data_received;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            last_data <= 0;
-        end
-        else begin
-            if(next_state == IDLE) last_data <= 0;
-            else if(ss_tready && ss_tvalid) last_data <= ss_tlast;
-            else last_data <= last_data;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            computing <= 0;
-        end
-        else begin
-            if(ss_tready && ss_tvalid) computing <= 1;
-            else if(shift_counter == 0 && data_write_en) computing <= 0;
-            //else if(sm_tready && sm_tvalid && (data_counter >= data_length - 1) && !sm_tlast) computing <= 1;
-            else computing <= computing;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            outputing <= 0;
-        end
-        else begin
-            if(shift_counter == 0 && data_write_en) outputing <= 1;
-            else if(sm_tready && sm_tvalid) outputing <= 0;
-            else outputing <= outputing;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            data_read_stage <= 2;
-        end
-        else begin
-            if(current_state ==COMPUTE)begin
-                if(sm_tready && sm_tvalid) data_read_stage <= 2;
-                else if(computing) begin
-                    if(data_read_stage == 0) data_read_stage <= 2;
-                    else data_read_stage <= data_read_stage - 1;
+    case(state_r)
+        IDLE: begin
+            data_A_w = data_A_r + 4;
+            data_Di_w = 0;
+            data_WE_w = 4'b1111;
+            if(data_A_r == 6'h28) begin
+                data_A_w = data_A_r;
+                if(ap_start_r) begin
+                    state_w = CAL;
+                    ss_tready_w = 1;
+                    data_A_w = 0;
                 end
-                else data_read_stage <= data_read_stage;
-            end
-            else begin
-                data_read_stage <= data_read_stage;
             end
         end
+        CAL: begin
+            if(ss_tready && !ss_tvalid) begin
+                ss_tready_w = 1;
+            end
+            else if(!sm_stop) begin
+                data_A_last_w = data_A_r;
+                data_A_w = data_A_r[5:0] - 3'd4;
+                tap_A_cal = tap_A_r[5:0] + 3'd4;
+                if(data_A_r[5:0] == 6'h0) data_A_w = 6'h28;
+                if(tap_A_r[5:0] == 6'h28) begin
+                    if(data_cnt_r != data_len_r-1) ss_tready_w = 1;
+                    tap_A_cal = 0;
+                    data_cnt_w = data_cnt_r + 1;
+                end
+            end
+
+            if(ss_tready && ss_tvalid) begin
+                data_WE_w = 4'b1111;
+                data_Di_w = ss_tdata;
+                tap_A_cal = 0;
+                data_A_w = data_A_last_r; 
+            end 
+            if(ss_tin_d[13]) begin 
+                sm_tdata_w = sum_r;
+                sm_tvalid_w = 1;
+                if(data_cnt_r == data_len_r) state_w = DONE;
+            end
+        end
+        DONE: begin
+            state_w = IDLE;
+            data_cnt_w = 0;
+            data_A_w = 0;
+        end
+    endcase
+end
+
+always @(*) begin
+    tap_A_w = (state_r == IDLE && !ap_start_r) ? tap_A_idle : tap_A_cal;
+    data_Do_d1_mul2_w = tap_A_r[5:0] == 6'h4 ? data_Di : data_Do;
+    product_w = tap_Do_mul1 * data_Do_mul2_r;
+    sum_w = ss_tin_d[2] ? 0 : sum_r + product_r; 
+end
+
+integer i;
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if(!axis_rst_n) begin
+        for(i = 0; i < 14; i = i + 1) ss_tin_d[i] <= 0;
     end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            current_data <= 0;
-        end
-        else begin
-            if(data_read_stage == 1) current_data <= data_Do;
-            else current_data <= current_data;
-        end
+    else begin
+        ss_tin_d[0] <= sm_stop ? ss_tin_d[0] : ss_tready && ss_tvalid;
+        for(i = 1; i < 14; i = i + 1) ss_tin_d[i] <= sm_stop ? ss_tin_d[i] : ss_tin_d[i-1];
     end
+end
 
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            first_data <= 0;
-        end
-        else begin
-            if(current_state == WAIT_FOR_DATA && next_state == COMPUTE) first_data <= 1;
-            else if(sm_tready && sm_tvalid) first_data <= 0;
-            else first_data <= first_data;
-        end
+always @(posedge axis_clk or negedge axis_rst_n) begin
+    if(!axis_rst_n) begin
+        rvalid_r        <= 0;
+        rdata_r         <= 0;
+        ss_tready_r     <= 0;
+        sm_tvalid_r     <= 0;
+        sm_tdata_r      <= 0;
+        sm_tlast_r      <= 0;
+        tap_WE_r        <= 0;
+        tap_Di_r        <= 0;
+        tap_A_r         <= 0;
+        data_WE_r       <= 0;
+        data_Di_r       <= 0;
+        data_A_r        <= 0;
+        state_r         <= 0;
+        data_len_r      <= 0;
+        ap_start_r      <= 0;
+        ap_done_r       <= 0;
+        data_cnt_r      <= 0;
+        sum_r           <= 0;
+        product_r       <= 0;
+        tap_Do_mul1       <= 0;
+        data_Do_mul2_r    <= 0;
+        tap_read_d1     <= 0;
+        tap_read_d2     <= 0;
+        data_A_last_r   <= 0;
     end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            shift_counter <= 40;
-        end
-        else begin
-            if(shift_counter == 0 && data_write_en) shift_counter <= 40;
-            else if(data_write_en && shift_counter != 0) shift_counter <= shift_counter - 4;
-            else shift_counter <= shift_counter;
-        end
+    else begin
+        rvalid_r        <= rvalid_w;
+        rdata_r         <= rdata_w;
+        ss_tready_r     <= ss_tready_w;
+        sm_tvalid_r     <= sm_tvalid_w;
+        sm_tdata_r      <= sm_tdata_w;
+        sm_tlast_r      <= sm_tlast_w;
+        tap_WE_r        <= tap_WE_w;
+        tap_Di_r        <= tap_Di_w;
+        tap_A_r         <= tap_A_w;
+        data_WE_r       <= data_WE_w;
+        data_Di_r       <= data_Di_w;
+        data_A_r        <= data_A_w;
+        state_r         <= state_w;
+        data_len_r      <= data_len_w;
+        ap_start_r      <= ap_start_w;
+        ap_done_r       <= ap_done_w;
+        data_cnt_r      <= data_cnt_w;
+        sum_r           <= sum_w;
+        product_r       <= product_w;
+        tap_Do_mul1       <= tap_Do;
+        data_Do_mul2_r    <= data_Do_d1_mul2_w;
+        tap_read_d1     <= tap_read;
+        tap_read_d2     <= tap_read_d1;
+        data_A_last_r   <= data_A_last_w;
     end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            accumulated_result <= 0;
-        end
-        else begin
-            if(sm_tready && sm_tvalid) accumulated_result <= 0;
-            else if(data_read_stage == 0) accumulated_result <= accumulated_result + mult_result;
-            else accumulated_result <= accumulated_result;
-        end
-    end
-
-
-    // ss control
-    always@(*)begin
-        ss_tready = (!computing && !outputing && current_state == COMPUTE);
-    end
-
-    // sm control
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            sm_tvalid <= 0;
-        end
-        else begin
-            if(sm_tready && sm_tvalid) sm_tvalid <= 0;
-            else if(shift_counter == 0 && data_write_en) sm_tvalid <= 1;
-            else sm_tvalid <= sm_tvalid;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-            sm_tlast <= 0;
-        end
-        else begin
-            if(sm_tvalid && sm_tready) sm_tlast <= 0;
-            else if(shift_counter == 0 && data_write_en) sm_tlast <= (data_counter == data_length - 1);
-            else sm_tlast <= sm_tlast;
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-
-        end
-        else begin
-
-        end
-    end
-
-    always@(posedge axis_clk or negedge axis_rst_n)begin
-        if(!axis_rst_n)begin
-
-        end
-        else begin
-
-        end
-    end
-
+end
 
 endmodule

@@ -30,7 +30,7 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 	for (int i = 0; i < 64; i++) {
 		while (reg_ap_signal & 0x00010000 != 0x00010000)
 			;;
-		reg_x_input = i;
+		reg_x_input = i+1;
 		while (reg_ap_signal & 0x00100000 != 0x00100000)
 			;;
 		outputsignal[i] = reg_y_output;

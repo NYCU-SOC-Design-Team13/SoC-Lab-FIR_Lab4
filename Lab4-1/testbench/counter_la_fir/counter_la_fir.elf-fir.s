@@ -6,7 +6,7 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.file 0 "/home/ubuntu/lab/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir" "fir.c"
+	.file 0 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir" "fir.c"
 	.globl	taps
 	.data
 	.align	2
@@ -648,8 +648,8 @@ fir:
 .LASF4:
 	.string	"inputbuffer"
 	.section	.debug_line_str,"MS",@progbits,1
+.LASF1:
+	.string	"/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir"
 .LASF0:
 	.string	"fir.c"
-.LASF1:
-	.string	"/home/ubuntu/lab/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir"
 	.ident	"GCC: (g1ea978e3066) 12.1.0"

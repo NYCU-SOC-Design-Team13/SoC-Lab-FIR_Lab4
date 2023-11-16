@@ -162,14 +162,12 @@ module counter_la_fir_tb;
 	reg signed [31:0] golden_list[0:63];
 
 	initial begin
-	    fd = $fopen("/home/ubuntu/lab/SoC-lab4/lab-caravel_fir/testbench/counter_la_fir/out_gold.dat","r");
-	    for(i=0; i<64; i=i+1) begin
+	    fd = $fopen("/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/testbench/counter_la_fir/out_gold.dat","r");
+	    for(i=0; i<64; i=i+1) 
 	    	golden_data = $fscanf(fd,"%d", golden_list[i]);
-			// $display("%d",golden_list[i]);
-	    end
     end
 
-	//
+	// ================================================================
 
 	reg [31:0] latency_timer;
 	
@@ -186,36 +184,22 @@ module counter_la_fir_tb;
 
 		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-		$display("First Pattern Pass");
+		$display("First Test Pass");
 
 		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-		$display("Second Pattern Pass");
+		$display("Second Test Pass");
 
 		for (j = 0; j < 64; j = j + 1)
 			wait($signed(checkbits) == golden_list[j]);
-		$display("Thrid Pattern Pass");
+		$display("Thrid Test Pass");
 
 		wait(checkbits == 16'hAB51);
 		$display("LA Test 2 passed");
-		$display("Latency %d clocks", latency_timer);
+		$display("Latency: %d clocks", latency_timer);
 		#10000;
 		$finish;
 	end
-	
-
-	// initial begin
-	// 	latency = 0;
-	// 	tot_lat = 0;
-	// 	wait(checkbits[7:0] == 'hA5);
-	// 	while(checkbits[7:0] != 'h5A || checkbits[15:8] != ans1[63][7:0]) begin
-	// 		latency = latency + 1;
-	// 		@(posedge clock);
-	// 	end
-	// 	tot_lat = tot_lat + latency;
-	// 	latency = 0;
-	// 	$display("First done");
-	// end
 
 	initial begin
 		RSTB <= 1'b0;

@@ -6,6 +6,8 @@
 -v ../../rtl/user/user_project_wrapper.v
 -v ../../rtl/user/user_proj_example.counter.v
 -v ../../rtl/user/bram.v
+-v ../../rtl/user/fir.v
+-v ../../rtl/user/bram11.v
 
 ## VIP
 -v ../../vip/tbuart.v

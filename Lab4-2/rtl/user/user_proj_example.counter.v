@@ -14,9 +14,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 `default_nettype wire
-`include "/home/ubuntu/lab/SoC-lab4/lab-caravel_fir/rtl/user/fir.v"
-`include "/home/ubuntu/lab/SoC-lab4/lab-caravel_fir/rtl/user/bram11.v"
-
 
 `define MPRJ_IO_PADS_1 19	/* number of user GPIO pads on user1 side */
 `define MPRJ_IO_PADS_2 19	/* number of user GPIO pads on user2 side */

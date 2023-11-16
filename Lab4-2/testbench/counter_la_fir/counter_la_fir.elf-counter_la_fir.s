@@ -6,7 +6,7 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.file 0 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir" "counter_la_fir.c"
+	.file 0 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/testbench/counter_la_fir" "counter_la_fir.c"
 	.align	2
 	.type	flush_cpu_icache, @function
 flush_cpu_icache:
@@ -55,12 +55,12 @@ flush_cpu_dcache:
 .LFE22:
 	.size	flush_cpu_dcache, .-flush_cpu_dcache
 	.align	2
-	.globl	main
-	.type	main, @function
-main:
+	.globl	putchar
+	.type	putchar, @function
+putchar:
 .LFB316:
-	.file 2 "counter_la_fir.c"
-	.loc 2 35 1
+	.file 2 "../../firmware/stub.c"
+	.loc 2 19 1
 	.cfi_startproc
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
@@ -70,454 +70,33 @@ main:
 	.cfi_offset 8, -8
 	addi	s0,sp,32
 	.cfi_def_cfa 8, 0
-	.loc 2 63 10
-	li	a5,637534208
-	addi	a5,a5,160
-	.loc 2 63 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 64 10
-	li	a5,637534208
-	addi	a5,a5,156
-	.loc 2 64 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 65 10
-	li	a5,637534208
-	addi	a5,a5,152
-	.loc 2 65 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 66 10
-	li	a5,637534208
-	addi	a5,a5,148
-	.loc 2 66 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 67 10
-	li	a5,637534208
-	addi	a5,a5,144
-	.loc 2 67 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 68 10
-	li	a5,637534208
-	addi	a5,a5,140
-	.loc 2 68 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 69 10
-	li	a5,637534208
-	addi	a5,a5,136
-	.loc 2 69 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 70 10
-	li	a5,637534208
-	addi	a5,a5,132
-	.loc 2 70 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 71 10
-	li	a5,637534208
-	addi	a5,a5,128
-	.loc 2 71 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 72 10
-	li	a5,637534208
-	addi	a5,a5,124
-	.loc 2 72 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 73 10
-	li	a5,637534208
-	addi	a5,a5,120
-	.loc 2 73 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 74 10
-	li	a5,637534208
-	addi	a5,a5,116
-	.loc 2 74 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 75 10
-	li	a5,637534208
-	addi	a5,a5,112
-	.loc 2 75 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 76 10
-	li	a5,637534208
-	addi	a5,a5,108
-	.loc 2 76 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 77 10
-	li	a5,637534208
-	addi	a5,a5,104
-	.loc 2 77 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 78 10
-	li	a5,637534208
-	addi	a5,a5,100
-	.loc 2 78 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 80 10
-	li	a5,637534208
-	addi	a5,a5,96
-	.loc 2 80 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 81 10
-	li	a5,637534208
-	addi	a5,a5,92
-	.loc 2 81 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 82 10
-	li	a5,637534208
-	addi	a5,a5,88
-	.loc 2 82 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 83 10
-	li	a5,637534208
-	addi	a5,a5,84
-	.loc 2 83 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 84 10
-	li	a5,637534208
-	addi	a5,a5,80
-	.loc 2 84 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 85 10
-	li	a5,637534208
-	addi	a5,a5,76
-	.loc 2 85 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 86 10
-	li	a5,637534208
-	addi	a5,a5,72
-	.loc 2 86 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 87 10
-	li	a5,637534208
-	addi	a5,a5,68
-	.loc 2 87 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 88 10
-	li	a5,637534208
-	addi	a5,a5,64
-	.loc 2 88 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 89 10
-	li	a5,637534208
-	addi	a5,a5,56
-	.loc 2 89 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 90 10
-	li	a5,637534208
-	addi	a5,a5,52
-	.loc 2 90 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 91 10
-	li	a5,637534208
-	addi	a5,a5,48
-	.loc 2 91 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 92 10
-	li	a5,637534208
-	addi	a5,a5,44
-	.loc 2 92 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 93 10
-	li	a5,637534208
-	addi	a5,a5,40
-	.loc 2 93 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 94 10
-	li	a5,637534208
-	addi	a5,a5,36
-	.loc 2 94 43
-	li	a4,8192
-	addi	a4,a4,-2040
-	sw	a4,0(a5)
-	.loc 2 96 10
-	li	a5,637534208
-	addi	a5,a5,60
-	.loc 2 96 43
-	li	a4,8192
-	addi	a4,a4,-2039
-	sw	a4,0(a5)
-	.loc 2 100 3
-	li	a5,-268410880
-	.loc 2 100 50
-	li	a4,1
-	sw	a4,0(a5)
-	.loc 2 103 3
-	li	a5,637534208
-	.loc 2 103 36
-	li	a4,1
-	sw	a4,0(a5)
-	.loc 2 104 8
+	mv	a5,a0
+	sb	a5,-17(s0)
+	.loc 2 20 5
+	lbu	a4,-17(s0)
+	li	a5,10
+	bne	a4,a5,.L6
+	.loc 2 21 3
+	li	a0,13
+	call	putchar
+.L6:
+	.loc 2 22 11
 	nop
-.L4:
-	.loc 2 104 10 discriminator 1
-	li	a5,637534208
+.L5:
+	.loc 2 22 13 discriminator 1
+	li	a5,-268410880
+	addi	a5,a5,-2044
 	lw	a4,0(a5)
-	.loc 2 104 43 discriminator 1
+	.loc 2 22 60 discriminator 1
 	li	a5,1
-	beq	a4,a5,.L4
-	.loc 2 108 60
-	li	a5,-268423168
-	addi	a4,a5,12
-	.loc 2 108 114
-	li	a5,0
-	sw	a5,0(a4)
-	.loc 2 108 3
-	li	a4,-268423168
-	addi	a4,a4,28
-	.loc 2 108 57
-	sw	a5,0(a4)
-	.loc 2 109 59
-	li	a5,-268423168
-	addi	a4,a5,8
-	.loc 2 109 112
-	li	a5,-1
-	sw	a5,0(a4)
-	.loc 2 109 3
-	li	a4,-268423168
-	addi	a4,a4,24
-	.loc 2 109 56
-	sw	a5,0(a4)
-	.loc 2 110 59
-	li	a5,-268423168
-	addi	a4,a5,4
-	.loc 2 110 112
-	li	a5,0
-	sw	a5,0(a4)
-	.loc 2 110 3
-	li	a4,-268423168
-	addi	a4,a4,20
-	.loc 2 110 56
-	sw	a5,0(a4)
-	.loc 2 111 53
-	li	a4,-268423168
-	.loc 2 111 100
-	li	a5,0
-	sw	a5,0(a4)
-	.loc 2 111 3
-	li	a4,-268423168
-	addi	a4,a4,16
-	.loc 2 111 50
-	sw	a5,0(a4)
-	.loc 2 114 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 114 36
-	li	a4,-1421869056
+	beq	a4,a5,.L5
+	.loc 2 23 3
+	li	a5,-268410880
+	addi	a5,a5,-2048
+	.loc 2 23 50
+	lbu	a4,-17(s0)
 	sw	a4,0(a5)
-	.loc 2 117 3
-	li	a5,-268423168
-	addi	a5,a5,56
-	.loc 2 117 56
-	sw	zero,0(a5)
-	.loc 2 120 59
-	li	a5,-268423168
-	addi	a4,a5,8
-	.loc 2 120 112
-	li	a5,0
-	sw	a5,0(a4)
-	.loc 2 120 3
-	li	a4,-268423168
-	addi	a4,a4,24
-	.loc 2 120 56
-	sw	a5,0(a4)
-	.loc 2 130 13
-	call	fir
-	sw	a0,-20(s0)
-	.loc 2 131 38
-	lw	a5,-20(s0)
-	lw	a5,0(a5)
-	.loc 2 131 43
-	slli	a4,a5,16
-	.loc 2 131 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 131 36
-	sw	a4,0(a5)
-	.loc 2 132 43
-	lw	a5,-20(s0)
-	addi	a5,a5,4
-	.loc 2 132 38
-	lw	a5,0(a5)
-	.loc 2 132 47
-	slli	a4,a5,16
-	.loc 2 132 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 132 36
-	sw	a4,0(a5)
-	.loc 2 133 43
-	lw	a5,-20(s0)
-	addi	a5,a5,8
-	.loc 2 133 38
-	lw	a5,0(a5)
-	.loc 2 133 47
-	slli	a4,a5,16
-	.loc 2 133 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 133 36
-	sw	a4,0(a5)
-	.loc 2 134 43
-	lw	a5,-20(s0)
-	addi	a5,a5,12
-	.loc 2 134 38
-	lw	a5,0(a5)
-	.loc 2 134 47
-	slli	a4,a5,16
-	.loc 2 134 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 134 36
-	sw	a4,0(a5)
-	.loc 2 135 43
-	lw	a5,-20(s0)
-	addi	a5,a5,16
-	.loc 2 135 38
-	lw	a5,0(a5)
-	.loc 2 135 47
-	slli	a4,a5,16
-	.loc 2 135 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 135 36
-	sw	a4,0(a5)
-	.loc 2 136 43
-	lw	a5,-20(s0)
-	addi	a5,a5,20
-	.loc 2 136 38
-	lw	a5,0(a5)
-	.loc 2 136 47
-	slli	a4,a5,16
-	.loc 2 136 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 136 36
-	sw	a4,0(a5)
-	.loc 2 137 43
-	lw	a5,-20(s0)
-	addi	a5,a5,24
-	.loc 2 137 38
-	lw	a5,0(a5)
-	.loc 2 137 47
-	slli	a4,a5,16
-	.loc 2 137 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 137 36
-	sw	a4,0(a5)
-	.loc 2 138 43
-	lw	a5,-20(s0)
-	addi	a5,a5,28
-	.loc 2 138 38
-	lw	a5,0(a5)
-	.loc 2 138 47
-	slli	a4,a5,16
-	.loc 2 138 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 138 36
-	sw	a4,0(a5)
-	.loc 2 139 43
-	lw	a5,-20(s0)
-	addi	a5,a5,32
-	.loc 2 139 38
-	lw	a5,0(a5)
-	.loc 2 139 47
-	slli	a4,a5,16
-	.loc 2 139 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 139 36
-	sw	a4,0(a5)
-	.loc 2 140 43
-	lw	a5,-20(s0)
-	addi	a5,a5,36
-	.loc 2 140 38
-	lw	a5,0(a5)
-	.loc 2 140 47
-	slli	a4,a5,16
-	.loc 2 140 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 140 36
-	sw	a4,0(a5)
-	.loc 2 141 43
-	lw	a5,-20(s0)
-	addi	a5,a5,40
-	.loc 2 141 38
-	lw	a5,0(a5)
-	.loc 2 141 48
-	slli	a4,a5,16
-	.loc 2 141 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 141 36
-	sw	a4,0(a5)
-	.loc 2 145 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 2 145 36
-	li	a4,-1420754944
-	sw	a4,0(a5)
-	.loc 2 146 1
+	.loc 2 24 1
 	nop
 	lw	ra,28(sp)
 	.cfi_restore 1
@@ -529,18 +108,456 @@ main:
 	jr	ra
 	.cfi_endproc
 .LFE316:
+	.size	putchar, .-putchar
+	.align	2
+	.globl	print
+	.type	print, @function
+print:
+.LFB317:
+	.loc 2 27 1
+	.cfi_startproc
+	addi	sp,sp,-32
+	.cfi_def_cfa_offset 32
+	sw	ra,28(sp)
+	sw	s0,24(sp)
+	.cfi_offset 1, -4
+	.cfi_offset 8, -8
+	addi	s0,sp,32
+	.cfi_def_cfa 8, 0
+	sw	a0,-20(s0)
+	.loc 2 28 8
+	j	.L8
+.L9:
+	.loc 2 29 14
+	lw	a5,-20(s0)
+	addi	a4,a5,1
+	sw	a4,-20(s0)
+	.loc 2 29 3
+	lbu	a5,0(a5)
+	mv	a0,a5
+	call	putchar
+.L8:
+	.loc 2 28 9
+	lw	a5,-20(s0)
+	lbu	a5,0(a5)
+	bne	a5,zero,.L9
+	.loc 2 30 1
+	nop
+	nop
+	lw	ra,28(sp)
+	.cfi_restore 1
+	lw	s0,24(sp)
+	.cfi_restore 8
+	.cfi_def_cfa 2, 32
+	addi	sp,sp,32
+	.cfi_def_cfa_offset 0
+	jr	ra
+	.cfi_endproc
+.LFE317:
+	.size	print, .-print
+	.align	2
+	.globl	main
+	.type	main, @function
+main:
+.LFB318:
+	.file 3 "counter_la_fir.c"
+	.loc 3 35 1
+	.cfi_startproc
+	addi	sp,sp,-32
+	.cfi_def_cfa_offset 32
+	sw	ra,28(sp)
+	sw	s0,24(sp)
+	.cfi_offset 1, -4
+	.cfi_offset 8, -8
+	addi	s0,sp,32
+	.cfi_def_cfa 8, 0
+	.loc 3 63 10
+	li	a5,637534208
+	addi	a5,a5,160
+	.loc 3 63 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 64 10
+	li	a5,637534208
+	addi	a5,a5,156
+	.loc 3 64 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 65 10
+	li	a5,637534208
+	addi	a5,a5,152
+	.loc 3 65 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 66 10
+	li	a5,637534208
+	addi	a5,a5,148
+	.loc 3 66 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 67 10
+	li	a5,637534208
+	addi	a5,a5,144
+	.loc 3 67 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 68 10
+	li	a5,637534208
+	addi	a5,a5,140
+	.loc 3 68 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 69 10
+	li	a5,637534208
+	addi	a5,a5,136
+	.loc 3 69 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 70 10
+	li	a5,637534208
+	addi	a5,a5,132
+	.loc 3 70 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 71 10
+	li	a5,637534208
+	addi	a5,a5,128
+	.loc 3 71 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 72 10
+	li	a5,637534208
+	addi	a5,a5,124
+	.loc 3 72 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 73 10
+	li	a5,637534208
+	addi	a5,a5,120
+	.loc 3 73 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 74 10
+	li	a5,637534208
+	addi	a5,a5,116
+	.loc 3 74 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 75 10
+	li	a5,637534208
+	addi	a5,a5,112
+	.loc 3 75 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 76 10
+	li	a5,637534208
+	addi	a5,a5,108
+	.loc 3 76 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 77 10
+	li	a5,637534208
+	addi	a5,a5,104
+	.loc 3 77 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 78 10
+	li	a5,637534208
+	addi	a5,a5,100
+	.loc 3 78 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 80 10
+	li	a5,637534208
+	addi	a5,a5,96
+	.loc 3 80 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 81 10
+	li	a5,637534208
+	addi	a5,a5,92
+	.loc 3 81 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 82 10
+	li	a5,637534208
+	addi	a5,a5,88
+	.loc 3 82 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 83 10
+	li	a5,637534208
+	addi	a5,a5,84
+	.loc 3 83 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 84 10
+	li	a5,637534208
+	addi	a5,a5,80
+	.loc 3 84 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 85 10
+	li	a5,637534208
+	addi	a5,a5,76
+	.loc 3 85 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 86 10
+	li	a5,637534208
+	addi	a5,a5,72
+	.loc 3 86 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 87 10
+	li	a5,637534208
+	addi	a5,a5,68
+	.loc 3 87 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 88 10
+	li	a5,637534208
+	addi	a5,a5,64
+	.loc 3 88 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 89 10
+	li	a5,637534208
+	addi	a5,a5,56
+	.loc 3 89 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 90 10
+	li	a5,637534208
+	addi	a5,a5,52
+	.loc 3 90 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 91 10
+	li	a5,637534208
+	addi	a5,a5,48
+	.loc 3 91 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 92 10
+	li	a5,637534208
+	addi	a5,a5,44
+	.loc 3 92 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 93 10
+	li	a5,637534208
+	addi	a5,a5,40
+	.loc 3 93 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 94 10
+	li	a5,637534208
+	addi	a5,a5,36
+	.loc 3 94 43
+	li	a4,8192
+	addi	a4,a4,-2040
+	sw	a4,0(a5)
+	.loc 3 96 10
+	li	a5,637534208
+	addi	a5,a5,60
+	.loc 3 96 43
+	li	a4,8192
+	addi	a4,a4,-2039
+	sw	a4,0(a5)
+	.loc 3 100 3
+	li	a5,-268410880
+	.loc 3 100 50
+	li	a4,1
+	sw	a4,0(a5)
+	.loc 3 103 3
+	li	a5,637534208
+	.loc 3 103 36
+	li	a4,1
+	sw	a4,0(a5)
+	.loc 3 104 8
+	nop
+.L11:
+	.loc 3 104 10 discriminator 1
+	li	a5,637534208
+	lw	a4,0(a5)
+	.loc 3 104 43 discriminator 1
+	li	a5,1
+	beq	a4,a5,.L11
+	.loc 3 108 60
+	li	a5,-268423168
+	addi	a4,a5,12
+	.loc 3 108 114
+	li	a5,0
+	sw	a5,0(a4)
+	.loc 3 108 3
+	li	a4,-268423168
+	addi	a4,a4,28
+	.loc 3 108 57
+	sw	a5,0(a4)
+	.loc 3 109 59
+	li	a5,-268423168
+	addi	a4,a5,8
+	.loc 3 109 112
+	li	a5,-1
+	sw	a5,0(a4)
+	.loc 3 109 3
+	li	a4,-268423168
+	addi	a4,a4,24
+	.loc 3 109 56
+	sw	a5,0(a4)
+	.loc 3 110 59
+	li	a5,-268423168
+	addi	a4,a5,4
+	.loc 3 110 112
+	li	a5,0
+	sw	a5,0(a4)
+	.loc 3 110 3
+	li	a4,-268423168
+	addi	a4,a4,20
+	.loc 3 110 56
+	sw	a5,0(a4)
+	.loc 3 111 53
+	li	a4,-268423168
+	.loc 3 111 100
+	li	a5,0
+	sw	a5,0(a4)
+	.loc 3 111 3
+	li	a4,-268423168
+	addi	a4,a4,16
+	.loc 3 111 50
+	sw	a5,0(a4)
+	.loc 3 114 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 114 36
+	li	a4,-1421869056
+	sw	a4,0(a5)
+	.loc 3 117 3
+	li	a5,-268423168
+	addi	a5,a5,56
+	.loc 3 117 56
+	sw	zero,0(a5)
+	.loc 3 120 59
+	li	a5,-268423168
+	addi	a4,a5,8
+	.loc 3 120 112
+	li	a5,0
+	sw	a5,0(a4)
+	.loc 3 120 3
+	li	a4,-268423168
+	addi	a4,a4,24
+	.loc 3 120 56
+	sw	a5,0(a4)
+	.loc 3 122 13
+	call	fir
+	sw	a0,-28(s0)
+.LBB2:
+	.loc 3 123 11
+	sw	zero,-20(s0)
+	.loc 3 123 2
+	j	.L12
+.L15:
+.LBB3:
+	.loc 3 124 12
+	sw	zero,-24(s0)
+	.loc 3 124 3
+	j	.L13
+.L14:
+	.loc 3 125 46 discriminator 3
+	lw	a5,-24(s0)
+	slli	a5,a5,2
+	lw	a4,-28(s0)
+	add	a5,a4,a5
+	.loc 3 125 40 discriminator 3
+	lw	a5,0(a5)
+	.loc 3 125 51 discriminator 3
+	slli	a4,a5,16
+	.loc 3 125 5 discriminator 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 125 38 discriminator 3
+	sw	a4,0(a5)
+	.loc 3 124 28 discriminator 3
+	lw	a5,-24(s0)
+	addi	a5,a5,1
+	sw	a5,-24(s0)
+.L13:
+	.loc 3 124 21 discriminator 1
+	lw	a4,-24(s0)
+	li	a5,63
+	ble	a4,a5,.L14
+.LBE3:
+	.loc 3 123 38 discriminator 2
+	lw	a5,-20(s0)
+	addi	a5,a5,1
+	sw	a5,-20(s0)
+.L12:
+	.loc 3 123 28 discriminator 1
+	lw	a4,-20(s0)
+	li	a5,2
+	ble	a4,a5,.L15
+.LBE2:
+	.loc 3 132 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 132 36
+	li	a4,-1420754944
+	sw	a4,0(a5)
+	.loc 3 133 1
+	nop
+	lw	ra,28(sp)
+	.cfi_restore 1
+	lw	s0,24(sp)
+	.cfi_restore 8
+	.cfi_def_cfa 2, 32
+	addi	sp,sp,32
+	.cfi_def_cfa_offset 0
+	jr	ra
+	.cfi_endproc
+.LFE318:
 	.size	main, .-main
 .Letext0:
-	.file 3 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
+	.file 4 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0xdd
+	.4byte	0x15d
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
 	.4byte	.Ldebug_abbrev0
-	.byte	0x3
-	.4byte	.LASF13
+	.byte	0x8
+	.4byte	.LASF17
 	.byte	0x1d
 	.4byte	.LASF0
 	.4byte	.LASF1
@@ -571,9 +588,9 @@ main:
 	.byte	0x2
 	.byte	0x7
 	.4byte	.LASF7
+	.byte	0x9
+	.4byte	.LASF18
 	.byte	0x4
-	.4byte	.LASF14
-	.byte	0x3
 	.byte	0x34
 	.byte	0x1b
 	.4byte	0x5c
@@ -585,7 +602,7 @@ main:
 	.byte	0x8
 	.byte	0x7
 	.4byte	.LASF9
-	.byte	0x5
+	.byte	0xa
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
@@ -593,53 +610,118 @@ main:
 	.byte	0x4
 	.byte	0x7
 	.4byte	.LASF10
-	.byte	0x6
+	.byte	0xb
 	.string	"fir"
-	.byte	0x2
+	.byte	0x3
 	.byte	0x16
 	.byte	0xd
 	.4byte	0x8a
 	.4byte	0x8a
-	.byte	0x7
+	.byte	0xc
 	.byte	0
-	.byte	0x8
-	.byte	0x4
-	.4byte	0x6a
-	.byte	0x9
-	.4byte	.LASF15
 	.byte	0x2
+	.4byte	0x6a
+	.byte	0xd
+	.4byte	.LASF19
+	.byte	0x3
 	.byte	0x22
 	.byte	0x6
-	.4byte	.LFB316
-	.4byte	.LFE316-.LFB316
+	.4byte	.LFB318
+	.4byte	.LFE318-.LFB318
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xc0
-	.byte	0xa
+	.4byte	0xed
+	.byte	0xe
 	.string	"j"
-	.byte	0x2
+	.byte	0x3
 	.byte	0x24
 	.byte	0x6
 	.4byte	0x6a
-	.byte	0xb
+	.byte	0x3
 	.string	"tmp"
-	.byte	0x2
-	.byte	0x82
+	.byte	0x7a
 	.byte	0x7
 	.4byte	0x8a
+	.byte	0x2
+	.byte	0x91
+	.byte	0x64
+	.byte	0x4
+	.4byte	.LBB2
+	.4byte	.LBE2-.LBB2
+	.byte	0xf
+	.4byte	.LASF11
+	.byte	0x3
+	.byte	0x7b
+	.byte	0xb
+	.4byte	0x6a
+	.byte	0x2
+	.byte	0x91
+	.byte	0x6c
+	.byte	0x4
+	.4byte	.LBB3
+	.4byte	.LBE3-.LBB3
+	.byte	0x3
+	.string	"i"
+	.byte	0x7c
+	.byte	0xc
+	.4byte	0x6a
+	.byte	0x2
+	.byte	0x91
+	.byte	0x68
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0x5
+	.4byte	.LASF13
+	.byte	0x1a
+	.4byte	.LFB317
+	.4byte	.LFE317-.LFB317
+	.byte	0x1
+	.byte	0x9c
+	.4byte	0x10e
+	.byte	0x6
+	.string	"p"
+	.byte	0x1a
+	.byte	0x18
+	.4byte	0x10e
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
 	.byte	0
 	.byte	0x2
-	.4byte	.LASF11
+	.4byte	0x11a
+	.byte	0x1
+	.byte	0x1
+	.byte	0x8
+	.4byte	.LASF12
+	.byte	0x10
+	.4byte	0x113
+	.byte	0x5
+	.4byte	.LASF14
+	.byte	0x12
+	.4byte	.LFB316
+	.4byte	.LFE316-.LFB316
+	.byte	0x1
+	.byte	0x9c
+	.4byte	0x140
+	.byte	0x6
+	.string	"c"
+	.byte	0x12
+	.byte	0x13
+	.4byte	0x113
+	.byte	0x2
+	.byte	0x91
+	.byte	0x6f
+	.byte	0
+	.byte	0x7
+	.4byte	.LASF15
 	.byte	0x1c
 	.4byte	.LFB22
 	.4byte	.LFE22-.LFB22
 	.byte	0x1
 	.byte	0x9c
-	.byte	0x2
-	.4byte	.LASF12
+	.byte	0x7
+	.4byte	.LASF16
 	.byte	0xe
 	.4byte	.LFB21
 	.4byte	.LFE21-.LFB21
@@ -660,6 +742,90 @@ main:
 	.byte	0
 	.byte	0
 	.byte	0x2
+	.byte	0xf
+	.byte	0
+	.byte	0xb
+	.byte	0x21
+	.byte	0x4
+	.byte	0x49
+	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0x3
+	.byte	0x34
+	.byte	0
+	.byte	0x3
+	.byte	0x8
+	.byte	0x3a
+	.byte	0x21
+	.byte	0x3
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0xb
+	.byte	0x49
+	.byte	0x13
+	.byte	0x2
+	.byte	0x18
+	.byte	0
+	.byte	0
+	.byte	0x4
+	.byte	0xb
+	.byte	0x1
+	.byte	0x11
+	.byte	0x1
+	.byte	0x12
+	.byte	0x6
+	.byte	0
+	.byte	0
+	.byte	0x5
+	.byte	0x2e
+	.byte	0x1
+	.byte	0x3f
+	.byte	0x19
+	.byte	0x3
+	.byte	0xe
+	.byte	0x3a
+	.byte	0x21
+	.byte	0x2
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0x21
+	.byte	0x6
+	.byte	0x27
+	.byte	0x19
+	.byte	0x11
+	.byte	0x1
+	.byte	0x12
+	.byte	0x6
+	.byte	0x40
+	.byte	0x18
+	.byte	0x7c
+	.byte	0x19
+	.byte	0x1
+	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0x6
+	.byte	0x5
+	.byte	0
+	.byte	0x3
+	.byte	0x8
+	.byte	0x3a
+	.byte	0x21
+	.byte	0x2
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0xb
+	.byte	0x49
+	.byte	0x13
+	.byte	0x2
+	.byte	0x18
+	.byte	0
+	.byte	0
+	.byte	0x7
 	.byte	0x2e
 	.byte	0
 	.byte	0x3
@@ -684,7 +850,7 @@ main:
 	.byte	0x19
 	.byte	0
 	.byte	0
-	.byte	0x3
+	.byte	0x8
 	.byte	0x11
 	.byte	0x1
 	.byte	0x25
@@ -703,7 +869,7 @@ main:
 	.byte	0x17
 	.byte	0
 	.byte	0
-	.byte	0x4
+	.byte	0x9
 	.byte	0x16
 	.byte	0
 	.byte	0x3
@@ -718,7 +884,7 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x5
+	.byte	0xa
 	.byte	0x24
 	.byte	0
 	.byte	0xb
@@ -729,7 +895,7 @@ main:
 	.byte	0x8
 	.byte	0
 	.byte	0
-	.byte	0x6
+	.byte	0xb
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -750,21 +916,12 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x7
+	.byte	0xc
 	.byte	0x18
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0x8
-	.byte	0xf
-	.byte	0
-	.byte	0xb
-	.byte	0xb
-	.byte	0x49
-	.byte	0x13
-	.byte	0
-	.byte	0
-	.byte	0x9
+	.byte	0xd
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -789,7 +946,7 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xa
+	.byte	0xe
 	.byte	0x34
 	.byte	0
 	.byte	0x3
@@ -804,11 +961,11 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xb
+	.byte	0xf
 	.byte	0x34
 	.byte	0
 	.byte	0x3
-	.byte	0x8
+	.byte	0xe
 	.byte	0x3a
 	.byte	0xb
 	.byte	0x3b
@@ -819,6 +976,13 @@ main:
 	.byte	0x13
 	.byte	0x2
 	.byte	0x18
+	.byte	0
+	.byte	0
+	.byte	0x10
+	.byte	0x26
+	.byte	0
+	.byte	0x49
+	.byte	0x13
 	.byte	0
 	.byte	0
 	.byte	0
@@ -837,7 +1001,7 @@ main:
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF11:
+.LASF15:
 	.string	"flush_cpu_dcache"
 .LASF6:
 	.string	"unsigned char"
@@ -845,29 +1009,37 @@ main:
 	.string	"long unsigned int"
 .LASF7:
 	.string	"short unsigned int"
-.LASF13:
+.LASF14:
+	.string	"putchar"
+.LASF17:
 	.string	"GNU C17 12.1.0 -mabi=ilp32 -mtune=rocket -misa-spec=2.2 -march=rv32i -g -ffreestanding"
-.LASF15:
+.LASF19:
 	.string	"main"
+.LASF11:
+	.string	"round"
 .LASF10:
 	.string	"unsigned int"
 .LASF9:
 	.string	"long long unsigned int"
-.LASF12:
+.LASF16:
 	.string	"flush_cpu_icache"
 .LASF5:
 	.string	"long long int"
+.LASF12:
+	.string	"char"
+.LASF13:
+	.string	"print"
 .LASF3:
 	.string	"short int"
-.LASF14:
+.LASF18:
 	.string	"uint32_t"
 .LASF4:
 	.string	"long int"
 .LASF2:
 	.string	"signed char"
 	.section	.debug_line_str,"MS",@progbits,1
-.LASF1:
-	.string	"/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir"
 .LASF0:
 	.string	"counter_la_fir.c"
+.LASF1:
+	.string	"/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/testbench/counter_la_fir"
 	.ident	"GCC: (g1ea978e3066) 12.1.0"
