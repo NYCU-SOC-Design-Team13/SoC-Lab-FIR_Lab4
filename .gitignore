@@ -28,8 +28,8 @@
 
 # Executables
 *.exe
-*.out
 *.app
 
 # Lab
 *.vcd
+*.backup.log

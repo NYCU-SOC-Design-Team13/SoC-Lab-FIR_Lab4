@@ -2,6 +2,7 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+<<<<<<< HEAD:Lab4-2/vivado/vivado.log
 # Start of session at: Sat Nov  4 07:41:56 2023
 # Process ID: 890834
 # Current directory: /home/ubuntu/lab-caravel_fir/vivado
@@ -9,6 +10,15 @@
 # Log file: /home/ubuntu/lab-caravel_fir/vivado/vivado.log
 # Journal file: /home/ubuntu/lab-caravel_fir/vivado/vivado.jou
 # Running On: ubuntu2004, OS: Linux, CPU Frequency: 2111.998 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+=======
+# Start of session at: Thu Nov 16 08:33:04 2023
+# Process ID: 47312
+# Current directory: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj
+# Command line: vivado
+# Log file: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/vivado.log
+# Journal file: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2496.000 MHz, CPU Physical cores: 4, Host memory: 16766 MB
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/vivado.log
 #-----------------------------------------------------------
 start_gui
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
@@ -17,8 +27,15 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 avail
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+<<<<<<< HEAD:Lab4-2/vivado/vivado.log
 open_project /home/ubuntu/lab-caravel_fir/project_1/project_1.xpr
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/ubuntu/lab-caravel_fir/project_1/project_1.gen/sources_1'.
+=======
+open_project /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.xpr
+INFO: [Project 1-313] Project file moved from '/home/ubuntu/lab4-1/vivado_proj/project_1' since last save.
+INFO: [filemgmt 56-2] Default IP Output Path : Could not find the directory '/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.gen/sources_1', nor could it be found using path '/home/ubuntu/lab4-1/vivado_proj/project_1/project_1.gen/sources_1'.
+INFO: [filemgmt 56-1] IPUserFilesDir: Directory not found as '/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.ip_user_files'; using path '/home/ubuntu/lab4-1/vivado_proj/project_1/project_1.ip_user_files' instead.
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/vivado.log
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -26,3 +43,51 @@ INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
 open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 7555.578 ; gain = 78.180 ; free physical = 4793 ; free virtual = 8991
 update_compile_order -fileset sources_1
+<<<<<<< HEAD:Lab4-2/vivado/vivado.log
+=======
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new
+close [ open /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
+reset_run synth_1
+INFO: [Project 1-1160] Copying file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.dcp to /home/ubuntu/lab4-1/vivado_proj/project_1/project_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1 -jobs 4
+[Thu Nov 16 08:34:45 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 7714.664 ; gain = 0.000 ; free physical = 3596 ; free virtual = 10649
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+CRITICAL WARNING: [Common 17-161] Invalid option value '0.000, 5.000' specified for 'waveform'. [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:1]
+Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7738.676 ; gain = 0.000 ; free physical = 3504 ; free virtual = 10556
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/timing_report.txt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+refresh_design
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+report_timing -delay_type min_max -max_paths 10 -sort_by group -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/timing_report.txt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 10 -nworst 1 -delay_type min_max -sort_by group.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/timing_report.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 08:37:21 2023...
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/vivado.log

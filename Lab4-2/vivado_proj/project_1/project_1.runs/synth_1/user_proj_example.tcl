@@ -4,7 +4,11 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
+<<<<<<< HEAD:Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
   variable script "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl"
+=======
+  variable script "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl"
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
   variable category "vivado_synth"
 }
 
@@ -76,8 +80,13 @@ create_project -in_memory -part xc7z020clg400-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+<<<<<<< HEAD:Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
 set_property webtalk.parent_dir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.cache/wt [current_project]
 set_property parent.project_path /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.xpr [current_project]
+=======
+set_property webtalk.parent_dir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.cache/wt [current_project]
+set_property parent.project_path /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.xpr [current_project]
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.cache/ip [current_project]
@@ -85,10 +94,15 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+<<<<<<< HEAD:Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
   /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/rtl/user/bram.v
   /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/rtl/user/bram11.v
   /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/rtl/user/fir.v
   /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/rtl/user/user_proj_example.counter.v
+=======
+  /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/rtl/user/bram.v
+  /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/rtl/user/user_proj_example.counter.v
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -99,8 +113,13 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+<<<<<<< HEAD:Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
 read_xdc /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
 set_property used_in_implementation false [get_files /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+=======
+read_xdc /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
+set_property used_in_implementation false [get_files /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.tcl
 
 set_param ips.enableIPCacheLiteLoad 1
 

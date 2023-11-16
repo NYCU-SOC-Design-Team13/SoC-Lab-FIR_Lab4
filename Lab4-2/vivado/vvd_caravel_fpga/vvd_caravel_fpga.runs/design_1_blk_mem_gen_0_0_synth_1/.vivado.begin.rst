@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
+<<<<<<< HEAD:Lab4-2/vivado/vvd_caravel_fpga/vvd_caravel_fpga.runs/design_1_blk_mem_gen_0_0_synth_1/.vivado.begin.rst
     <Process Command="vivado" Owner="ubuntu" Host="ubuntu2004" Pid="21380" HostCore="2" HostMemory="10180708">
+=======
+    <Process Command="vivado" Owner="ubuntu" Host="ubuntu2004" Pid="47635" HostCore="4" HostMemory="16373324">
+>>>>>>> d8da07279c1c112e3dbde45d1073e7b1e0f91742:Lab4-1/vivado_proj/project_1/project_1.runs/synth_1/.vivado.begin.rst
     </Process>
 </ProcessHandle>
