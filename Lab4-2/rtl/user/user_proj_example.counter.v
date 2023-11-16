@@ -13,9 +13,14 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-`default_nettype none
+`default_nettype wire
 `include "/home/ubuntu/lab/SoC-lab4/lab-caravel_fir/rtl/user/fir.v"
 `include "/home/ubuntu/lab/SoC-lab4/lab-caravel_fir/rtl/user/bram11.v"
+
+
+`define MPRJ_IO_PADS_1 19	/* number of user GPIO pads on user1 side */
+`define MPRJ_IO_PADS_2 19	/* number of user GPIO pads on user2 side */
+`define MPRJ_IO_PADS (`MPRJ_IO_PADS_1 + `MPRJ_IO_PADS_2)
 
 /*
  *-------------------------------------------------------------
@@ -345,14 +350,6 @@ always@(posedge wb_clk_i or posedge wb_rst_i)begin
     end
 end
 
-// AXI LITE write
-    // input awready,
-    // input wready,
-    // output awvalid,
-    // output [11:0] awaddr,
-    // output wvalid,
-    // output [31:0] wdata,
-
 always@(*) begin
     if(fir_valid && fir_axil) begin
         // awvalid
@@ -372,14 +369,6 @@ always@(*) begin
     end
 end
 
-// AXI LITE read
-    // input arready,
-    // output rready,
-    // output arvalid,
-    // output [11:0] araddr,
-    // input rvalid,
-    // input [31:0] rdata,
-
 always@(*) begin
     if(fir_valid && fir_axil) begin
         // rready
@@ -395,12 +384,6 @@ always@(*) begin
         araddr  = 0;
     end
 end
-
-// AXI stream ss
-    // output ss_tvalid, 
-    // output [31:0] ss_tdata, 
-    // output ss_tlast, 
-    // input ss_tready, 
 
 always@(*) begin
     if(fir_valid && !fir_axil && wbs_adr_i[7:0] == 'h80) begin
@@ -419,12 +402,6 @@ always@(*) begin
         ss_tlast    = 0;
     end
 end
-
-// AXI stream sm 
-    // output sm_tready, 
-    // input sm_tvalid, 
-    // input [31:0] sm_tdata, 
-    // input sm_tlast, 
 
 always@(*) begin
     if(fir_valid && !fir_axil && wbs_adr_i[7:0] == 'h84) begin
@@ -476,62 +453,54 @@ module WB_to_User_Bram #(
     wire clk;
     wire rst;
 
-    reg [3:0] counter;
-    reg valid;
-    wire [31:0] data_out;
+    reg [3:0] delay_count;
+   
+    
     reg [31:0] wbs_dat_o;
-    reg ack;
-    wire [3:0] write_en;
-    wire [31:0] address;
-    wire [31:0] data_in;
-    wire to_user_bram;
+    reg user_ready;
+    wire [31:0] addr;
+    wire IsUserAddr;
+    wire valid;
+    wire [3:0] wstrb;
+    wire [31:0] data_out;
+
 
     assign clk = wb_clk_i;
     assign rst = wb_rst_i;
-    assign to_user_bram = (wbs_cyc_i && wbs_stb_i && wbs_adr_i[31:24] == 8'h38);
-    assign write_en = to_user_bram ? {4{wbs_we_i}} & wbs_sel_i : 4'b0000;
-    assign address = to_user_bram ? (wbs_adr_i-32'h38000000)>>2 : 32'h0;
-    assign data_in = to_user_bram ? wbs_dat_i : 32'h0;
-    assign wbs_ack_o = ack;
-
-    always @(posedge clk or posedge rst) begin
-        if(rst) begin
-            counter <= 0;
-        end
-        else begin
-            if(wbs_ack_o) counter <= 0;
-            else if(to_user_bram) counter <= counter + 1;
-            else counter <= 0;
-        end
-    end
-
-    always @(posedge clk or posedge rst) begin
-        if(rst) begin
-            ack <= 0;
-        end
-        else begin
-            if(counter == DELAYS + 1) ack <= 1;
-            else ack <= 0;
-        end
-    end
+    assign valid = wbs_cyc_i && wbs_stb_i;
+    assign IsUserAddr = wbs_adr_i[31:24] == 8'h38;
+    assign wbs_ack_o = user_ready;
+    assign wstrb = wbs_sel_i & {4{wbs_we_i}};
+    assign addr = wbs_adr_i-32'h38000000;
 
     always @(posedge clk or posedge rst) begin
         if(rst) begin
             wbs_dat_o <= 0;
+            user_ready <= 0;
+            delay_count <= 0;
         end
         else begin
-            if(counter == DELAYS + 1) wbs_dat_o <= data_out;
-            else wbs_dat_o <= 0;
+            user_ready <= 0;
+            if (valid && IsUserAddr && !user_ready) begin
+                if (delay_count == DELAYS) begin
+                    user_ready <= 1;
+                    delay_count <= 0;
+                    wbs_dat_o <= data_out;
+                end else begin
+                    delay_count <= delay_count + 1;
+                    user_ready <= 0;
+                end
+            end
         end
     end
 
     bram user_bram (
         .CLK(clk),
-        .WE0(write_en),
-        .EN0(1'b1),
-        .Di0(data_in),
+        .WE0(wstrb),
+        .EN0(valid && IsUserAddr),
+        .Di0(wbs_dat_i),
         .Do0(data_out),
-        .A0(address)
+        .A0(addr)
     );
 
 endmodule
