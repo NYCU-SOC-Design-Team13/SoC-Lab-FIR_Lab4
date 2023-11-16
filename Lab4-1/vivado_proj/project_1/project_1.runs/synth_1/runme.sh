@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ubuntu/lab4-1/vivado_proj/project_1/project_1.runs/synth_1'
+HD_PWD='/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/vivado_proj/project_1/project_1.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
