@@ -1,5 +1,5 @@
 # 0 "counter_la_fir.c"
-# 1 "/home/ubuntu/lab4-1/testbench/counter_la_fir//"
+# 1 "/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-1/testbench/counter_la_fir//"
 # 0 "<built-in>"
 # 0 "<command-line>"
 # 1 "counter_la_fir.c"

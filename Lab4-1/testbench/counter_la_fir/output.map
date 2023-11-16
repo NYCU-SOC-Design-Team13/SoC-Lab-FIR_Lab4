@@ -141,20 +141,20 @@ OUTPUT(counter_la_fir.elf elf32-littleriscv)
  .debug_line    0x00000000000009a4       0x7a /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
 
 .debug_line_str
-                0x0000000000000000      0x15d
+                0x0000000000000000      0x16e
  .debug_line_str
-                0x0000000000000000       0x47 counter_la_fir.elf-crt0_vex.o
+                0x0000000000000000       0x58 counter_la_fir.elf-crt0_vex.o
  .debug_line_str
-                0x0000000000000047       0x6b counter_la_fir.elf-isr.o
-                                         0xe0 (size before relaxing)
+                0x0000000000000058       0x6b counter_la_fir.elf-isr.o
+                                        0x102 (size before relaxing)
  .debug_line_str
-                0x00000000000000b2        0x6 counter_la_fir.elf-fir.o
-                                         0x72 (size before relaxing)
+                0x00000000000000c3        0x6 counter_la_fir.elf-fir.o
+                                         0x94 (size before relaxing)
  .debug_line_str
-                0x00000000000000b8       0x11 counter_la_fir.elf-counter_la_fir.o
-                                         0xe8 (size before relaxing)
+                0x00000000000000c9       0x11 counter_la_fir.elf-counter_la_fir.o
+                                        0x10a (size before relaxing)
  .debug_line_str
-                0x00000000000000c9       0x94 /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
+                0x00000000000000da       0x94 /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
 
 .debug_info     0x0000000000000000      0x354
  .debug_info    0x0000000000000000       0x25 counter_la_fir.elf-crt0_vex.o
@@ -182,15 +182,15 @@ OUTPUT(counter_la_fir.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000088       0x20 /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
 
-.debug_str      0x0000000000000000      0x21b
- .debug_str     0x0000000000000000       0x53 counter_la_fir.elf-crt0_vex.o
- .debug_str     0x0000000000000053       0xec counter_la_fir.elf-isr.o
+.debug_str      0x0000000000000000      0x22c
+ .debug_str     0x0000000000000000       0x64 counter_la_fir.elf-crt0_vex.o
+ .debug_str     0x0000000000000064       0xec counter_la_fir.elf-isr.o
                                         0x125 (size before relaxing)
- .debug_str     0x000000000000013f       0x3a counter_la_fir.elf-fir.o
+ .debug_str     0x0000000000000150       0x3a counter_la_fir.elf-fir.o
                                          0x9e (size before relaxing)
- .debug_str     0x0000000000000179        0x5 counter_la_fir.elf-counter_la_fir.o
+ .debug_str     0x000000000000018a        0x5 counter_la_fir.elf-counter_la_fir.o
                                         0x10b (size before relaxing)
- .debug_str     0x000000000000017e       0x9d /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
+ .debug_str     0x000000000000018f       0x9d /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a(muldi3.o)
                                          0xa9 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x180
