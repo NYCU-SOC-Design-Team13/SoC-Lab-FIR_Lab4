@@ -76,7 +76,7 @@ reg                         ap_start_r, ap_start_w;
 reg                         ap_done_r, ap_done_w;
 reg  [9:0]                  data_cnt_r, data_cnt_w;
 reg  [(pDATA_WIDTH-1):0]    sum_r, sum_w;
-reg  [(pDATA_WIDTH-1):0]    product_r, product_w;
+reg  [(pDATA_WIDTH-1):0]    mul_r, mul_w;
 reg  [(pADDR_WIDTH-1):0]    tap_A_idle;
 reg  [(pADDR_WIDTH-1):0]    tap_A_cal;
 
@@ -222,8 +222,8 @@ end
 always @(*) begin
     tap_A_w = (state_r == IDLE && !ap_start_r) ? tap_A_idle : tap_A_cal;
     data_Do_d1_mul2_w = tap_A_r[5:0] == 6'h4 ? data_Di : data_Do;
-    product_w = tap_Do_mul1 * data_Do_mul2_r;
-    sum_w = ss_tin_d[2] ? 0 : sum_r + product_r; 
+    mul_w = tap_Do_mul1 * data_Do_mul2_r;
+    sum_w = ss_tin_d[2] ? 0 : sum_r + mul_r; 
 end
 
 integer i;
@@ -257,9 +257,9 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
         ap_done_r       <= 0;
         data_cnt_r      <= 0;
         sum_r           <= 0;
-        product_r       <= 0;
-        tap_Do_mul1       <= 0;
-        data_Do_mul2_r    <= 0;
+        mul_r           <= 0;
+        tap_Do_mul1     <= 0;
+        data_Do_mul2_r  <= 0;
         tap_read_d1     <= 0;
         tap_read_d2     <= 0;
         data_A_last_r   <= 0;
@@ -283,9 +283,9 @@ always @(posedge axis_clk or negedge axis_rst_n) begin
         ap_done_r       <= ap_done_w;
         data_cnt_r      <= data_cnt_w;
         sum_r           <= sum_w;
-        product_r       <= product_w;
-        tap_Do_mul1       <= tap_Do;
-        data_Do_mul2_r    <= data_Do_d1_mul2_w;
+        mul_r           <= mul_w;
+        tap_Do_mul1     <= tap_Do;
+        data_Do_mul2_r  <= data_Do_d1_mul2_w;
         tap_read_d1     <= tap_read;
         tap_read_d2     <= tap_read_d1;
         data_A_last_r   <= data_A_last_w;

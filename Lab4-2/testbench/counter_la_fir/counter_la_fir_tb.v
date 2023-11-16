@@ -170,7 +170,8 @@ module counter_la_fir_tb;
 	// ================================================================
 
 	reg [31:0] latency_timer;
-	
+	reg [31:0] total_latency;
+
 	initial begin
 		wait(checkbits[7:0] == 8'hA5);
 		latency_timer = 0;
@@ -178,7 +179,6 @@ module counter_la_fir_tb;
 	end
 
 	initial begin
-	
 		wait(checkbits == 16'hAB40);
 		$display("LA Test 1 started");
 

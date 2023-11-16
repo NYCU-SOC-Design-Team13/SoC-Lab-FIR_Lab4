@@ -41,11 +41,8 @@
  */
 
 module user_proj_example #(
-    parameter BITS = 32,
-    parameter DELAYS=10,
     parameter pADDR_WIDTH = 12,
-    parameter pDATA_WIDTH = 32,
-    parameter Tape_Num    = 11
+    parameter pDATA_WIDTH = 32
 )(
 `ifdef USE_POWER_PINS
     inout vccd1,	// User area 1 1.8V supply
@@ -77,12 +74,6 @@ module user_proj_example #(
     // IRQ
     output [2:0] irq
 );
-    // wire clk;
-    // wire rst;
-
-    wire [`MPRJ_IO_PADS-1:0] io_in;
-    wire [`MPRJ_IO_PADS-1:0] io_out;
-    wire [`MPRJ_IO_PADS-1:0] io_oeb;
 
     // WB responding signals
     wire        wbs_ack_o_fir;
@@ -144,7 +135,7 @@ module user_proj_example #(
         end
     end
 
-    WB_to_User_Bram w_bto_userbram_u (
+    WbToUBram w_bto_userbram_u (
          .wb_clk_i(wb_clk_i),
          .wb_rst_i(wb_rst_i),
          .wbs_stb_i(wbs_stb_i),
@@ -158,7 +149,7 @@ module user_proj_example #(
 
     );
 
-    WBToAXI wbtoaxi_u (
+    WbToAxi wbtoaxi_u (
         // WB
         .wb_clk_i(wb_clk_i),
         .wb_rst_i(wb_rst_i),
@@ -264,19 +255,10 @@ module user_proj_example #(
         .wdi(tap_Di),
         .rdo(tap_Do)
     );
-    
-    // bram user_bram (
-    //     .CLK(clk),
-    //     .WE0(),
-    //     .EN0(),
-    //     .Di0(),
-    //     .Do0(),
-    //     .A0()
-    // );
 
 endmodule
 
-module WBToAXI(
+module WbToAxi(
     // WB
     input wb_clk_i,
     input wb_rst_i,
@@ -318,119 +300,91 @@ module WBToAXI(
 
 reg wbs_ack_o;
 wire fir_valid;
-wire fir_axil;
-reg aw_handshaked;
-reg w_handshaked;
-reg ar_handshaked;
+wire axilite;
+reg hs_aw;
+reg hs_w;
+reg hs_ar;
 
 assign fir_valid = (wbs_stb_i == 1 && wbs_cyc_i == 1 && wbs_adr_i[31:24] == 'h30);
-assign fir_axil = wbs_adr_i[7] == 0;
+assign axilite = wbs_adr_i[7] == 0;
 
-always@(posedge wb_clk_i or posedge wb_rst_i)begin
+always @(posedge wb_clk_i or posedge wb_rst_i)begin
     if(wb_rst_i)begin
-        aw_handshaked   <= 0;
-        w_handshaked    <= 0;
-        ar_handshaked   <= 0;
+        hs_aw <= 0; hs_w <= 0; hs_ar <= 0;
     end
     else begin
-        if(wbs_ack_o)               aw_handshaked <= 0;
-        else if(awvalid && awready) aw_handshaked <= 1;
-        else                        aw_handshaked <= aw_handshaked;
+        hs_aw <= hs_aw; hs_w <= hs_w; hs_ar <= hs_ar;
 
-        if(wbs_ack_o)               w_handshaked <= 0;
-        else if(wvalid && wready)   w_handshaked <= 1;
-        else                        w_handshaked <= w_handshaked;
+        if(wbs_ack_o) begin
+            hs_aw <= 0; hs_w <= 0; hs_ar <= 0;
+        end
 
-        if(wbs_ack_o)               ar_handshaked <= 0;
-        else if(arvalid && arready) ar_handshaked <= 1;
-        else                        ar_handshaked <= ar_handshaked;
+        if(awvalid && awready) hs_aw <= 1; // Is going to handshake
+        if(wvalid && wready)   hs_w <= 1;
+        if(arvalid && arready) hs_ar <= 1;
+
     end
 end
 
-always@(*) begin
-    if(fir_valid && fir_axil) begin
-        // awvalid
-        awvalid = (wbs_we_i && !aw_handshaked);
-        // wvalid
-        wvalid = (wbs_we_i && !w_handshaked);
-        // awaddr
+always @(*) begin
+    if(fir_valid && axilite) begin
+        awvalid = (wbs_we_i && !hs_aw);
+        wvalid = (wbs_we_i && !hs_w);
         awaddr = wbs_adr_i[11:0];
-        // wdata
         wdata = wbs_dat_i;
 
+        rready = (!wbs_we_i);
+        arvalid = (!wbs_we_i && !hs_ar);
+        araddr = wbs_adr_i[11:0];
     end else begin
         awvalid = 0;
         awaddr  = 0;
         wvalid  = 0;
         wdata   = 0;
-    end
-end
 
-always@(*) begin
-    if(fir_valid && fir_axil) begin
-        // rready
-        rready = (!wbs_we_i);
-        // arvalid
-        arvalid = (!wbs_we_i && !ar_handshaked);
-        // araddr
-        araddr = wbs_adr_i[11:0];
-
-    end else begin
         rready  = 0;
         arvalid = 0;
         araddr  = 0;
     end
 end
 
-always@(*) begin
-    if(fir_valid && !fir_axil && wbs_adr_i[7:0] == 'h80) begin
-        // ss_tvalid
+always @(*) begin
+    if(fir_valid && !axilite && wbs_adr_i[7:0] == 'h80) begin
         ss_tvalid = wbs_we_i;
-
-        // ss_tdata
         ss_tdata = wbs_dat_i;
-
-        // ss_tlast
         ss_tlast = 1;
-
     end else begin
-        ss_tvalid   = 0;
-        ss_tdata    = 0;
-        ss_tlast    = 0;
+        ss_tvalid = 0;
+        ss_tdata = 0;
+        ss_tlast = 0;
     end
 end
 
-always@(*) begin
-    if(fir_valid && !fir_axil && wbs_adr_i[7:0] == 'h84) begin
-        // sm_tready
+always @(*) begin
+    if(fir_valid && !axilite && wbs_adr_i[7:0] == 'h84) 
         sm_tready = 1;
-
-    end else begin
+    else
         sm_tready = 0;
-    end
 end
 
 // ack to wb and wbs_dat_o
-always@(*) begin
-    wbs_dat_o = 0;
-
-    if(fir_valid && fir_axil)
+always @(*) begin
+    if(fir_valid && axilite)
         wbs_dat_o = rdata;
-    else if(fir_valid && !fir_axil && wbs_adr_i[7:0] == 'h84)
+    else if(fir_valid && !axilite && wbs_adr_i[7:0] == 'h84)
         wbs_dat_o = sm_tdata;
-
-    wbs_ack_o = ((w_handshaked == 1 && aw_handshaked == 1) 
-              || (rready == 1 && rvalid == 1) 
-              || (ss_tvalid == 1 && ss_tready == 1) 
-              || (sm_tready == 1 && sm_tvalid == 1));
+    else 
+        wbs_dat_o = 0;
 end
 
-
+always @(*) begin
+    wbs_ack_o = ((hs_w == 1 && hs_aw == 1) || (rready == 1 && rvalid == 1) 
+              || (ss_tvalid == 1 && ss_tready == 1) || (sm_tready == 1 && sm_tvalid == 1));    
+end
 
 endmodule
 
-module WB_to_User_Bram #(
-    parameter BITS = 32,
+module WbToUBram #(
     parameter DELAYS=10
 )(
 
@@ -451,8 +405,6 @@ module WB_to_User_Bram #(
     wire rst;
 
     reg [3:0] delay_count;
-   
-    
     reg [31:0] wbs_dat_o;
     reg user_ready;
     wire [31:0] addr;
