@@ -1,0 +1,13 @@
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot counter_la_fir_tb_behav xil_defaultlib.counter_la_fir_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'mprj_io' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:265]
+ERROR: [VRFC 10-3180] cannot find port 'io3' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:281]
+ERROR: [VRFC 10-3180] cannot find port 'io2' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:280]
+ERROR: [VRFC 10-3180] cannot find port 'clk' on this module [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:277]
+WARNING: [VRFC 10-2861] module 'spiflash' does not have a parameter named FILENAME [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:274]
+ERROR: [VRFC 10-2063] Module <tbuart> not found while processing module instance <tbuart> [/home/ubuntu/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v:285]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

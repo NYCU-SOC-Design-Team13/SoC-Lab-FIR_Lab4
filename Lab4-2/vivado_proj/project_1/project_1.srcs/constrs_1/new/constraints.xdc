@@ -1,0 +1,1 @@
+create_clock -name wb_clk_i -period 15 -waveform {0.000 5.000} [get_ports wb_clk_i]
