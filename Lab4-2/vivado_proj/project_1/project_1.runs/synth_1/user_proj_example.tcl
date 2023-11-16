@@ -99,6 +99,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
+set_property used_in_implementation false [get_files /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/utils_1/imports/synth_1/user_proj_example.dcp

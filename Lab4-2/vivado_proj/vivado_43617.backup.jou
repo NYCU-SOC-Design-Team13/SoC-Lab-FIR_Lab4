@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Thu Nov 16 08:11:38 2023
-# Process ID: 44803
+# Start of session at: Thu Nov 16 08:00:19 2023
+# Process ID: 43617
 # Current directory: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj
 # Command line: vivado
 # Log file: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/vivado.log
@@ -12,18 +12,16 @@
 #-----------------------------------------------------------
 start_gui
 open_project /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.xpr
+open_run synth_1 -name synth_1
 update_compile_order -fileset sources_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new
+close [ open /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
+close_design
 reset_run synth_1
 launch_runs synth_1 -jobs 4
 wait_on_run synth_1
 open_run synth_1 -name synth_1
-refresh_design
-refresh_design
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-refresh_design
-refresh_design
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-refresh_design
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-refresh_design
 report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt

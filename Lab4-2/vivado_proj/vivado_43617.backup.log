@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Thu Nov 16 08:11:38 2023
-# Process ID: 44803
+# Start of session at: Thu Nov 16 08:00:19 2023
+# Process ID: 43617
 # Current directory: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj
 # Command line: vivado
 # Log file: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/vivado.log
@@ -24,77 +24,57 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
-update_compile_order -fileset sources_1
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/utils_1/imports/synth_1/user_proj_example.dcp with file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.dcp
-launch_runs synth_1 -jobs 4
-[Thu Nov 16 08:14:25 2023] Launched synth_1...
-Run output will be captured here: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/runme.log
 open_run synth_1 -name synth_1
 Design is defaulting to impl run constrset: constrs_1
 Design is defaulting to synth run part: xc7z020clg400-1
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7718.527 ; gain = 0.000 ; free physical = 3494 ; free virtual = 10662
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7706.207 ; gain = 0.000 ; free physical = 3596 ; free virtual = 10755
+INFO: [Netlist 29-17] Analyzing 92 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2022.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7730.219 ; gain = 0.000 ; free physical = 3504 ; free virtual = 10664
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 64 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 64 instances
+
+update_compile_order -fileset sources_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1
+file mkdir /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new
+close [ open /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc
+close_design
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/utils_1/imports/synth_1/user_proj_example.dcp with file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/user_proj_example.dcp
+launch_runs synth_1 -jobs 4
+[Thu Nov 16 08:08:24 2023] Launched synth_1...
+Run output will be captured here: /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8169.984 ; gain = 0.000 ; free physical = 2977 ; free virtual = 10142
 INFO: [Netlist 29-17] Analyzing 92 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2022.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-CRITICAL WARNING: [Common 17-165] Too many positional options when parsing 'wb_clk_i', please type 'create_clock -help' for usage info. [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:1]
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'wb_clk_i' relative to clock 'wb_clk_i' defined on the same pin is not supported, ignoring it [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:2]
 Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7742.539 ; gain = 0.000 ; free physical = 3403 ; free virtual = 10571
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8169.984 ; gain = 0.000 ; free physical = 2898 ; free virtual = 10063
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 64 instances were transformed.
   RAM16X1S => RAM32X1S (RAMS32): 64 instances
 
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-CRITICAL WARNING: [Common 17-161] Invalid option value '0.000, 7.000' specified for 'waveform'. [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:1]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-CRITICAL WARNING: [Common 17-161] Invalid option value '0.000, 5.000' specified for 'waveform'. [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:1]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-INFO: [Timing 38-35] Done setting XDC timing constraints.
-INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
-INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-INFO: [Timing 38-35] Done setting XDC timing constraints.
-INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
-INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
-INFO: [Timing 38-35] Done setting XDC timing constraints.
-INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
-INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
-refresh_design
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-Finished Parsing XDC File [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/timing_report.txt
+WARNING: [Constraints 18-6211] Setting input delay on a clock pin 'wb_clk_i' relative to clock 'wb_clk_i' defined on the same pin is not supported, ignoring it [/home/ubuntu/SoC-Lab-FIR_Lab4/Lab4-2/vivado_proj/project_1/project_1.srcs/constrs_1/new/constraints.xdc:2]
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 08:20:28 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 16 08:09:52 2023...

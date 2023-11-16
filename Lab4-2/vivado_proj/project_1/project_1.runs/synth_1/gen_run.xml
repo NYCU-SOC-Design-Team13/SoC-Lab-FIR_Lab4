@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1700138614" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/user_proj_example.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1700140465" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/user_proj_example.dcp">
   <File Type="VDS-TIMING-PB" Name="user_proj_example_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="user_proj_example_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="user_proj_example.dcp"/>
@@ -47,6 +47,12 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/constraints.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
@@ -66,9 +72,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
